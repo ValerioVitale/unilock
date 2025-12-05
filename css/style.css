@@ -24,7 +24,7 @@ a {
 ======================= */
 .hero {
     position: relative;
-    height: 100vh; /* always full viewport height */
+    height: 100vh;
     min-height: 100vh;
     background: url('../images/hero.jpg') center/cover no-repeat;
     display: flex;
@@ -62,9 +62,8 @@ a {
     color: #fff;
 }
 
-    /* Hero title and description */
     .hero-content h1 {
-        font-size: clamp(2rem, 6vw, 3rem); /* scales with screen */
+        font-size: clamp(2rem, 6vw, 3rem);
         margin-bottom: 1rem;
     }
 
@@ -83,10 +82,9 @@ a {
     z-index: 1;
 }
 
-    /* Hero button image */
     .hero-btn img {
         display: block;
-        width: clamp(150px, 20vw, 350px); /* scales with viewport width, min 150px, max 350px */
+        width: clamp(150px, 20vw, 350px);
         height: auto;
         transition: transform 0.3s ease;
     }
@@ -133,7 +131,6 @@ a {
     text-align: center;
 }
 
-/* Section paragraph styling */
 .section p {
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -159,11 +156,16 @@ a {
    Responsive Adjustments
 ======================= */
 
-/* Smartphones portrait */
+/* Portrait smartphones */
 @media (max-width: 480px) {
+    .hero {
+        background-size: contain; /* shrink image to fit, avoid cropping */
+        background-position: center top; /* ensure logo is visible */
+    }
+
     .hero-btn img {
-        width: 30vh; /* based on viewport height */
-        max-width: 200px;
+        width: 35vh; /* slightly bigger for mobile */
+        max-width: 250px;
     }
 
     .hero-content h1 {
@@ -177,9 +179,13 @@ a {
 
 /* Tablets / small desktops */
 @media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        background-position: center;
+    }
+
     .hero-btn img {
-        width: 60vh;
-        max-width: 350px;
+        width: clamp(200px, 25vw, 350px);
     }
 
     .hero-content h1 {
@@ -188,5 +194,12 @@ a {
 
     .hero-content p {
         font-size: 1.1rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) {
+    .hero {
+        height: 70vh; /* reduce height for landscape phones */
     }
 }
