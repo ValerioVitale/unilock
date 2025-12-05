@@ -178,8 +178,8 @@ a {
 /* Tablets / small desktops */
 @media (max-width: 768px) {
     .hero-btn img {
-        width: 20vh;
-        max-width: 250px;
+        width: 60vh;
+        max-width: 350px;
     }
 
     .hero-content h1 {
