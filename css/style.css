@@ -1,6 +1,5 @@
-/* =======================
-   General Reset
-======================= */
+/* ======================= General Reset ======================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -18,24 +17,22 @@ a {
     text-decoration: none;
     color: inherit;
 }
+/* ======================= Hero Section ======================= */
 
-/* =======================
-   Hero Section
-======================= */
 .hero {
     position: relative;
     height: 100vh;
     min-height: 100vh;
     background: url('../images/hero.jpg') center/cover no-repeat;
+    /* FIX 1: Use Flexbox to center the logo and content simultaneously */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+
     overflow: hidden;
 }
-
     /* Overlay for subtle dim effect */
+
     .hero::before {
         content: "";
         position: absolute;
@@ -43,43 +40,46 @@ a {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
         z-index: 0;
     }
+/* Hero content (button container) */
 
-/* Hero content (text & button) */
 .hero-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    /* Set the position */
+    position: absolute;
+    bottom: 3rem;
+    /* FIX FOR BUTTON CENTERING: Use margin auto with left/right anchors */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 3;
+    display: block;
     width: 100%;
     padding: 0 1rem;
+    /* This centers the inline-block button inside the container */
     text-align: center;
     color: #fff;
+    height: auto;
 }
 
-    .hero-content h1 {
-        font-size: clamp(2rem, 6vw, 3rem);
-        margin-bottom: 1rem;
-    }
+/* NEW: Main Logo Styling - Centered and Responsive */
+.main-logo {
+    z-index: 2;
+    margin: 0;
+    /* Responsive sizing remains correct */
+    width: clamp(200px, 40vw, 500px);
+    height: auto;
+    max-width: 90%;
+}
 
-    .hero-content p {
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        margin-bottom: 2rem;
-    }
+/* Hero button container (sits at the bottom) */
 
-/* Hero button container */
 .hero-btn {
-    margin-top: auto;
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
+    /* Removed margin-top: auto and margin-bottom: 3rem */
+    margin-bottom: 0;
+    display: inline-block; /* Essential for text-align: center to work */
+    z-index: 3;
 }
 
     .hero-btn img {
@@ -92,10 +92,8 @@ a {
         .hero-btn img:hover {
             transform: scale(1.3) translateY(10px);
         }
+/* ======================= Sections ======================= */
 
-/* =======================
-   Sections
-======================= */
 .section {
     padding: 6rem 2rem;
     max-width: 1000px;
@@ -106,8 +104,8 @@ a {
         font-size: clamp(1.5rem, 3vw, 2rem);
         margin-bottom: 2rem;
     }
-
 /* Image Grid */
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -119,8 +117,8 @@ a {
         border-radius: 12px;
         object-fit: cover;
     }
-
 /* Team Grid */
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -135,10 +133,8 @@ a {
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
+/* ======================= Fade-in Animations ======================= */
 
-/* =======================
-   Fade-in Animations
-======================= */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -151,29 +147,18 @@ a {
         transform: translateY(0);
     }
 }
-
-/* =======================
-   Responsive Adjustments
-======================= */
+/* ======================= Responsive Adjustments ======================= */
 
 /* Portrait smartphones */
 @media (max-width: 480px) {
     .hero {
-        background-size: contain; /* shrink image to fit, avoid cropping */
-        background-position: center top; /* ensure logo is visible */
+        background-size: contain;
+        background-position: center top;
     }
 
     .hero-btn img {
-        width: 35vh; /* slightly bigger for mobile */
+        width: 35vh;
         max-width: 250px;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
     }
 }
 
@@ -187,19 +172,11 @@ a {
     .hero-btn img {
         width: clamp(200px, 25vw, 350px);
     }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.1rem;
-    }
 }
 
 /* Landscape orientation adjustments */
 @media (orientation: landscape) {
     .hero {
-        height: 70vh; /* reduce height for landscape phones */
+        height: 70vh;
     }
 }
