@@ -1,164 +1,147 @@
-/* General Reset */
+/* =======================
+   General Reset
+======================= */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-  color: #1c1c1e;
-  background-color: #fff;
-  line-height: 1.6;
+    color: #1c1c1e;
+    background-color: #fff;
+    line-height: 1.6;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Hero Section */
+/* =======================
+   Hero Section
+======================= */
 .hero {
-  position: relative; /* Needed for overlay */
-  height: 100vh;
-  background: url('../images/hero.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Make hero text centered but button stay at bottom */
-.hero {
-    flex-direction: column;
-    padding-bottom: 3rem; /* space from bottom */
-}
-
-/* Button positioned at bottom of hero */
-.hero-btn {
-    margin-top: auto; /* push it to bottom */
-    margin-bottom: 3rem; /* space from bottom */
+    position: relative;
+    height: 100vh; /* always full viewport height */
+    min-height: 100vh;
+    background: url('../images/hero.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    flex-direction: column;
+    overflow: hidden;
 }
-    /* Hero button hover effect */
+
+    /* Overlay for subtle dim effect */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+        z-index: 0;
+    }
+
+/* Hero content (text & button) */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+    /* Hero title and description */
+    .hero-content h1 {
+        font-size: clamp(2rem, 6vw, 3rem); /* scales with screen */
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+        margin-bottom: 2rem;
+    }
+
+/* Hero button container */
+.hero-btn {
+    margin-top: auto;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+    /* Hero button image */
     .hero-btn img {
         display: block;
-        width: 20vw; /* 20% of viewport width */
-        max-width: 350px; /* don’t exceed original size */
-        min-width: 150px; /* optional: don’t get too small */
+        width: clamp(150px, 20vw, 350px); /* scales with viewport width, min 150px, max 350px */
         height: auto;
         transition: transform 0.3s ease;
     }
 
         .hero-btn img:hover {
-            transform: scale(1.5) translateY(10px); /* slightly grow & move down */
+            transform: scale(1.3) translateY(10px);
         }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    /* Make hero content fill hero height for flex positioning */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* text vertically centered */
-    height: 100%; /* full height of hero */
-}
-
-/* Push button toward bottom */
-.hero-btn {
-    margin-top: auto; /* pushes button to bottom of hero-content */
-    margin-bottom: 3rem; /* space from bottom of hero */
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.1),
-    rgba(0,0,0,0.1)
-  );
-}
-
-.hero-content {
-  position: relative; /* Keep text above overlay */
-  z-index: 1;
-  color: #fff;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #1c1c1e;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #1c1c1e;
-  color: #fff;
-}
-
-/* Sections */
+/* =======================
+   Sections
+======================= */
 .section {
-  padding: 6rem 2rem;
-  max-width: 1000px;
-  margin: auto;
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
+    .section h2 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 2rem;
+    }
 
 /* Image Grid */
 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1.5rem;
 }
 
-.image-grid img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
+    .image-grid img {
+        width: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+    }
 
 /* Team Grid */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 2rem;
 }
 
 .team-member {
-  text-align: center;
+    text-align: center;
 }
 
-/* Minimal Styling for Future Vision */
+/* Section paragraph styling */
 .section p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
-/* Fade-in animations */
+/* =======================
+   Fade-in Animations
+======================= */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -169,5 +152,41 @@ a {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* =======================
+   Responsive Adjustments
+======================= */
+
+/* Smartphones portrait */
+@media (max-width: 480px) {
+    .hero-btn img {
+        width: 30vh; /* based on viewport height */
+        max-width: 200px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Tablets / small desktops */
+@media (max-width: 768px) {
+    .hero-btn img {
+        width: 20vh;
+        max-width: 250px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
     }
 }
