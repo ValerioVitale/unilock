@@ -45,13 +45,15 @@ a {
     /* Hero button hover effect */
     .hero-btn img {
         display: block;
-        width: 350px; /* base size */
+        width: 20vw; /* 20% of viewport width */
+        max-width: 350px; /* don’t exceed original size */
+        min-width: 150px; /* optional: don’t get too small */
         height: auto;
-        transition: transform 0.3s ease; /* smooth animation */
+        transition: transform 0.3s ease;
     }
 
         .hero-btn img:hover {
-            transform: scale(1.1) translateY(10px); /* grow slightly and move down */
+            transform: scale(1.5) translateY(10px); /* slightly grow & move down */
         }
 
 .hero-content {
