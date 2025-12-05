@@ -28,6 +28,49 @@ a {
   text-align: center;
 }
 
+/* Make hero text centered but button stay at bottom */
+.hero {
+    flex-direction: column;
+    padding-bottom: 3rem; /* space from bottom */
+}
+
+/* Button positioned at bottom of hero */
+.hero-btn {
+    margin-top: auto; /* push it to bottom */
+    margin-bottom: 3rem; /* space from bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* Hero button hover effect */
+    .hero-btn img {
+        display: block;
+        width: 350px; /* base size */
+        height: auto;
+        transition: transform 0.3s ease; /* smooth animation */
+    }
+
+        .hero-btn img:hover {
+            transform: scale(1.1) translateY(10px); /* grow slightly and move down */
+        }
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    /* Make hero content fill hero height for flex positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* text vertically centered */
+    height: 100%; /* full height of hero */
+}
+
+/* Push button toward bottom */
+.hero-btn {
+    margin-top: auto; /* pushes button to bottom of hero-content */
+    margin-bottom: 3rem; /* space from bottom of hero */
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -37,11 +80,10 @@ a {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.2)
+    rgba(0,0,0,0.1),
+    rgba(0,0,0,0.1)
   );
 }
-
 
 .hero-content {
   position: relative; /* Keep text above overlay */
@@ -58,7 +100,6 @@ a {
   font-size: 1.25rem;
   margin-bottom: 2rem;
 }
-
 
 .btn {
   padding: 0.75rem 1.5rem;
@@ -128,4 +169,3 @@ a {
         transform: translateY(0);
     }
 }
-
