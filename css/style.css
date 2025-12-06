@@ -20,8 +20,8 @@ body {
     /* Keep: Tile the background image vertically */
     background-repeat: repeat-y; 
     
-    /* MODIFIED: Use auto size to prevent zoom/scaling and load at native resolution */
-    background-size: auto; 
+    /* MODIFIED: Set size to 100% width, auto height to prevent zoom but ensure full width coverage on all devices */
+    background-size: 100% auto; 
     
     /* MODIFIED: Align to top center for clean vertical tiling */
     background-position: center top;
