@@ -17,6 +17,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 /* ======================= Hero Section ======================= */
 
 .hero {
@@ -43,6 +44,7 @@ a {
         background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
         z-index: 0;
     }
+
 /* Hero content (button container) */
 
 .hero-content {
@@ -63,7 +65,7 @@ a {
     height: auto;
 }
 
-/* NEW: Main Logo Styling - Centered and Responsive */
+/* Main Logo Styling - Centered and Responsive */
 .main-logo {
     z-index: 2;
     margin: 0;
@@ -92,6 +94,7 @@ a {
         .hero-btn img:hover {
             transform: scale(1.3) translateY(10px);
         }
+
 /* ======================= Sections ======================= */
 
 .section {
@@ -117,6 +120,7 @@ a {
         border-radius: 12px;
         object-fit: cover;
     }
+
 /* Team Grid */
 
 .team-grid {
@@ -133,6 +137,7 @@ a {
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
+
 /* ======================= Fade-in Animations ======================= */
 
 .fade-in {
@@ -147,6 +152,48 @@ a {
         transform: translateY(0);
     }
 }
+
+/* ======================= Navigation Bar ======================= */
+
+.nav-bar {
+    position: absolute; 
+    top: 0;
+    width: 100%;
+    background-color: transparent; 
+    box-shadow: none;
+    z-index: 10; 
+    padding: 1rem 0;
+    opacity: 0;
+}
+
+.main-nav {
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+    .main-nav a {
+        font-weight: bold;
+        font-family: Cambria, 'Times New Roman', serif;
+        font-size: 1rem;
+        padding: 0.5rem 0.5rem;
+        transition: color 0.2s ease, transform 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        /* FIXED: Color back to white for visibility over the dark hero */
+        color: #ffffff; 
+    }
+
+    .main-nav a:hover {
+        /* Adjusted hover color for visibility against a dark background */
+        color: #ffa07a; 
+        transform: translateY(-2px);
+    }
+/* ======================= End Navigation Bar ======================= */
+
 /* ======================= Responsive Adjustments ======================= */
 
 /* Portrait smartphones */
