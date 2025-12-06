@@ -163,7 +163,8 @@ a {
     box-shadow: none;
     z-index: 10; 
     padding: 1rem 0;
-    opacity: 0;
+    /* Cleaned up opacity */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main-nav {
@@ -180,18 +181,42 @@ a {
         font-family: Cambria, 'Times New Roman', serif;
         font-size: 1rem;
         padding: 0.5rem 0.5rem;
+        color: #ffffff; 
         transition: color 0.2s ease, transform 0.2s ease;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        /* FIXED: Color back to white for visibility over the dark hero */
-        color: #ffffff; 
     }
 
     .main-nav a:hover {
-        /* Adjusted hover color for visibility against a dark background */
-        color: #ffa07a; 
+        /* MODIFIED: Changed from orange to light gold for dark background */
+        color: #F0E68C; /* Light Gold */
         transform: translateY(-2px);
     }
+
+/* NEW: Styles applied by JavaScript when scrolling */
+
+.nav-bar.sticky {
+    position: fixed; 
+    background-color: rgba(255, 255, 255, 0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar.sticky .main-nav a {
+    color: #1c1c1e; 
+}
+
+.nav-bar.sticky .main-nav a:hover {
+    /* MODIFIED: Changed from orange-red to solid gold for white background */
+    color: #FFD700; /* Gold */
+}
+
+/* Cleaned up padding-top on body */
+body {
+    color: #1c1c1e;
+    background-color: #fff;
+    line-height: 1.6;
+    padding-top: 0; 
+}
 /* ======================= End Navigation Bar ======================= */
 
 /* ======================= Responsive Adjustments ======================= */
@@ -206,6 +231,25 @@ a {
     .hero-btn img {
         width: 35vh;
         max-width: 250px;
+    }
+    
+    /* NEW: Navigation bar adjustments for portrait phones */
+    .main-nav {
+        /* Reduce horizontal padding significantly */
+        padding: 0 0.5rem; 
+        /* Ensure links wrap instead of being cut off */
+        flex-wrap: wrap; 
+        /* Use space-evenly to distribute links across the available width */
+        justify-content: space-evenly; 
+        /* Add some vertical space between wrapped items if they stack */
+        gap: 0.5rem 0.2rem; 
+    }
+    
+    .main-nav a {
+        /* Reduce font size slightly for better fit */
+        font-size: 0.9rem;
+        /* Reduce padding around links slightly */
+        padding: 0.5rem 0.3rem;
     }
 }
 
