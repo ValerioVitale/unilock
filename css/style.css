@@ -101,13 +101,20 @@ a {
 /* ======================= Sections ======================= */
 
 .section {
-    padding: 6rem 2rem;
+    /* MODIFIED: Set height to full viewport height for full-page experience */
+    height: 100vh;
+    /* MODIFIED: Use Flexbox to vertically align the content in the center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     max-width: 1000px;
     margin: auto;
-    /* Sections remain transparent to show the background */
     background-color: transparent; 
-    /* border-radius: 8px; */
-    margin-bottom: 2rem; 
+    margin-bottom: 0; 
+    
+    /* ADDED: Add padding back to the sides for content flow */
+    padding: 0 2rem;
 }
 
     .section h2 {
@@ -172,7 +179,7 @@ a {
     box-shadow: none;
     z-index: 10; 
     padding: 1rem 0;
-    /* Transition and sticky related styles removed */
+    /* Transition removed */
     transition: none;
 }
 
