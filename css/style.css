@@ -11,19 +11,17 @@ body {
     color: #ffffff;
     background-color: #fff;
     line-height: 1.6;
-    
-    /* MODIFIED: APPLY GRADIENT OVERLAY ON TOP OF THE BACKGROUND IMAGE */
+    padding-top: 0; 
+
+    /* APPLY GRADIENT OVERLAY ON TOP OF THE BACKGROUND IMAGE */
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('../images/hero.jpg');
     
     background-attachment: scroll; 
-    
-    /* Keep: Tile the background image vertically */
     background-repeat: repeat-y; 
     
-    /* MODIFIED: Set size to 100% width, auto height to prevent zoom but ensure full width coverage on all devices */
+    /* Set size to 100% width, auto height for seamless tiling across devices */
     background-size: 100% auto; 
     
-    /* MODIFIED: Align to top center for clean vertical tiling */
     background-position: center top;
 }
 
@@ -38,6 +36,7 @@ a {
     position: relative;
     height: 100vh;
     min-height: 100vh;
+    
     /* REMOVE BACKGROUND FROM HERO—it now inherits from body */
     background: none; 
     /* FIX 1: Use Flexbox to center the logo and content simultaneously */
@@ -47,9 +46,7 @@ a {
 
     overflow: hidden;
 }
-    /* Overlay for subtle dim effect */
-
-    /* The hero::before block has been removed */
+    /* The hero::before block was removed */
 
 /* Hero content (button container) */
 
@@ -107,7 +104,7 @@ a {
     padding: 6rem 2rem;
     max-width: 1000px;
     margin: auto;
-    /* MODIFIED: REMOVED white background for sections */
+    /* Sections remain transparent to show the background */
     background-color: transparent; 
     /* border-radius: 8px; */
     margin-bottom: 2rem; 
@@ -166,15 +163,17 @@ a {
 /* ======================= Navigation Bar ======================= */
 
 .nav-bar {
+    /* Position is absolute, so it scrolls away with the hero section */
     position: absolute; 
     top: 0;
     width: 100%;
+    /* Transparent and no shadow */
     background-color: transparent; 
     box-shadow: none;
     z-index: 10; 
     padding: 1rem 0;
-    /* Cleaned up opacity */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Transition and sticky related styles removed */
+    transition: none;
 }
 
 .main-nav {
@@ -198,36 +197,12 @@ a {
     }
 
     .main-nav a:hover {
-        /* MODIFIED: Changed from orange to light gold for dark background */
+        /* Gold hover for dark background */
         color: #F0E68C; /* Light Gold */
         transform: translateY(-2px);
     }
 
-/* NEW: Styles applied by JavaScript when scrolling */
-
-.nav-bar.sticky {
-    position: fixed; 
-    background-color: rgba(255, 255, 255, 0.95); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.nav-bar.sticky .main-nav a {
-    color: #1c1c1e; 
-}
-
-.nav-bar.sticky .main-nav a:hover {
-    /* MODIFIED: Changed from orange-red to solid gold for white background */
-    color: #FFD700; /* Gold */
-}
-
-/* Cleaned up padding-top on body */
-body {
-    color: #ffffff; /* This is the new default text color */
-    background-color: #fff;
-    line-height: 1.6;
-    padding-top: 0; 
-}
-/* ======================= End Navigation Bar ======================= */
+/* REMOVED: All .sticky classes */
 
 /* ======================= Responsive Adjustments ======================= */
 
@@ -243,7 +218,7 @@ body {
         max-width: 250px;
     }
     
-    /* NEW: Navigation bar adjustments for portrait phones */
+    /* Navigation bar adjustments for portrait phones */
     .main-nav {
         /* Reduce horizontal padding significantly */
         padding: 0 0.5rem; 
