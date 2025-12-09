@@ -104,6 +104,9 @@ a {
 .section {
     /* MODIFIED: Set height to full viewport height for full-page experience */
     height: 100vh;
+    /* ADDED: Must be relative so the scroll button is positioned correctly */
+    position: relative; 
+    
     /* MODIFIED: Use Flexbox to vertically align the content in the center */
     display: flex;
     flex-direction: column;
@@ -116,6 +119,30 @@ a {
     
     /* ADDED: Add padding back to the sides for content flow */
     padding: 0 2rem;
+}
+
+/* NEW: Button container for all non-hero sections */
+.scroll-down-btn-container {
+    position: absolute;
+    /* Place it 3rem from the bottom of the section */
+    bottom: 3rem; 
+    
+    /* Center it horizontally using the margin auto trick */
+    left: 0;
+    right: 0;
+    margin: 0 auto; 
+    
+    z-index: 10;
+    width: 100%; 
+    padding: 0 1rem;
+    
+    /* Center the inline-block button */
+    text-align: center;
+    height: auto;
+    
+    /* Add a small animation delay to make it appear smoothly */
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.5s; 
 }
 
     .section h2 {
