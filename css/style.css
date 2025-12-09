@@ -128,8 +128,8 @@ a {
 /* NEW: Scroll Up Button Container (Placed at top center) */
 .scroll-up-btn-container {
     position: absolute;
-    /* Place it 3rem from the TOP of the section */
-    top: 3rem; 
+    /* Adjusted from 3rem to 5rem for better vertical centering, clearing the nav bar area */
+    top: 5rem; 
     
     /* Center it horizontally using the margin auto trick */
     left: 0;
@@ -173,11 +173,27 @@ a {
     animation-delay: 0.5s; 
 }
 
-/* NEW: Hover effect for the UP button (targets the image inside the up container) */
-.scroll-up-btn-container .hero-btn img:hover {
-    /* Scroll Up Hover (Moves up) - Opposite of the down button */
-    transform: scale(1.1) translateY(-26px); 
+/* === SIZE REDUCTION FOR ALL SECTION BUTTONS (70% reduction) === */
+.scroll-up-btn-container .hero-btn img,
+.scroll-down-btn-container .hero-btn img {
+    /* Scale the image down to 30% (70% reduction) */
+    transform: scale(0.3);
+    /* Ensure the hover effect overrides this base scale */
+    transition: transform 0.3s ease; 
 }
+
+/* Hover effect for the UP button (targets the image inside the up container) */
+.scroll-up-btn-container .hero-btn img:hover {
+    /* Scale back up slightly more than the base scale, and move UP */
+    transform: scale(0.4) translateY(-26px); 
+}
+
+/* Hover effect for the DOWN button */
+.scroll-down-btn-container .hero-btn img:hover {
+    /* Scale back up slightly more than the base scale, and move DOWN */
+    transform: scale(0.4) translateY(26px); 
+}
+/* =============================================================== */
 
     .section h2 {
         font-size: clamp(1.5rem, 3vw, 2rem);
