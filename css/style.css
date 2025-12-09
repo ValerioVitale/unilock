@@ -54,14 +54,17 @@ a {
     /* Set the position */
     position: absolute;
     bottom: 3rem;
+    
     /* FIX FOR BUTTON CENTERING: Use margin auto with left/right anchors */
     left: 0;
     right: 0;
     margin: 0 auto;
+    
     z-index: 3;
     display: block;
     width: 100%;
     padding: 0 1rem;
+    
     /* This centers the inline-block button inside the container */
     text-align: center;
     color: #fff;
@@ -96,7 +99,8 @@ a {
     }
 
         .hero-btn img:hover {
-            transform: scale(1.1) translateY(26px);
+            /* Scroll Down Hover (Moves down) */
+            transform: scale(1.1) translateY(26px); 
         }
 
 /* ======================= Sections ======================= */
@@ -121,7 +125,31 @@ a {
     padding: 0 2rem;
 }
 
-/* NEW: Button container for all non-hero sections */
+/* NEW: Scroll Up Button Container (Placed at top center) */
+.scroll-up-btn-container {
+    position: absolute;
+    /* Place it 3rem from the TOP of the section */
+    top: 3rem; 
+    
+    /* Center it horizontally using the margin auto trick */
+    left: 0;
+    right: 0;
+    margin: 0 auto; 
+    
+    z-index: 10;
+    width: 100%; 
+    padding: 0 1rem;
+    
+    /* Center the inline-block button */
+    text-align: center;
+    height: auto;
+    
+    /* Add a small animation delay to make it appear smoothly */
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.5s; 
+}
+
+/* NEW: Scroll Down Button Container (Placed at bottom center) */
 .scroll-down-btn-container {
     position: absolute;
     /* Place it 3rem from the bottom of the section */
@@ -143,6 +171,12 @@ a {
     /* Add a small animation delay to make it appear smoothly */
     animation: fadeIn 1.2s ease forwards;
     animation-delay: 0.5s; 
+}
+
+/* NEW: Hover effect for the UP button (targets the image inside the up container) */
+.scroll-up-btn-container .hero-btn img:hover {
+    /* Scroll Up Hover (Moves up) - Opposite of the down button */
+    transform: scale(1.1) translateY(-26px); 
 }
 
     .section h2 {
@@ -236,8 +270,6 @@ a {
         color: #F0E68C; /* Light Gold */
         transform: translateY(-2px);
     }
-
-/* REMOVED: All .sticky classes */
 
 /* ======================= Responsive Adjustments ======================= */
 
