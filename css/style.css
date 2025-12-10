@@ -30,27 +30,25 @@ a {
     color: inherit;
 }
 
-/* ======================= Hero Section ======================= */
+/* ======================= LANDING SECTION (Formerly Hero) ======================= */
 
-.hero {
+.landing {
     position: relative;
     height: 100vh;
     min-height: 100vh;
     
-    /* REMOVE BACKGROUND FROM HERO—it now inherits from body */
+    /* REMOVE BACKGROUND FROM LANDING—it now inherits from body */
     background: none; 
-    /* FIX 1: Use Flexbox to center the logo and content simultaneously */
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 
     overflow: hidden;
 }
-    /* The hero::before block was removed */
 
-/* Hero content (button container) */
+/* Landing content (button container) */
 
-.hero-content {
+.landing-content {
     /* Set the position */
     position: absolute;
     bottom: 3rem;
@@ -248,7 +246,7 @@ a {
 /* ======================= Navigation Bar ======================= */
 
 .nav-bar {
-    /* Position is absolute, so it scrolls away with the hero section */
+    /* Position is absolute, so it scrolls away with the landing section */
     position: absolute; 
     top: 0;
     width: 100%;
@@ -291,7 +289,7 @@ a {
 
 /* Portrait smartphones */
 @media (max-width: 480px) {
-    .hero {
+    .landing {
         background-size: contain;
         background-position: center top;
     }
@@ -323,7 +321,7 @@ a {
 
 /* Tablets / small desktops */
 @media (max-width: 768px) {
-    .hero {
+    .landing {
         background-size: cover;
         background-position: center;
     }
@@ -336,7 +334,7 @@ a {
 
 /* Landscape orientation adjustments */
 @media (orientation: landscape) {
-    .hero {
+    .landing {
         height: 70vh;
     }
 }
