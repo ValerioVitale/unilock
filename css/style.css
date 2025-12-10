@@ -215,7 +215,7 @@ a {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns for 4 members */
     gap: 2rem;
 }
 
@@ -317,6 +317,13 @@ a {
         /* Reduce padding around links slightly */
         padding: 0.5rem 0.3rem;
     }
+    
+    /* Mobile team member spacing fix */
+    #team-section .team-grid {
+        gap: 0.5rem;
+        /* Adjusted bottom position for mobile */
+        margin-bottom: 50px; /* Use margin instead of absolute bottom */
+    }
 }
 
 /* Tablets / small desktops */
@@ -337,4 +344,95 @@ a {
     .landing {
         height: 70vh;
     }
+}
+
+
+/* NEW: Style for the team background <img> tag */
+.team-photo-background-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    z-index: 1; 
+    
+    /* === CONTROLLING SIZE HERE === */
+    max-width: 1500px; /* Set max-width for absolute sizing */
+    width: clamp(500px, 90vw, 1400px); /* Responsive size definition (Max 1500px) */
+    /* ============================ */
+    
+    height: auto;
+    object-fit: contain; 
+}
+
+/* Ensure the main team photo has a higher z-index to be on top */
+.team-photo-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%; 
+    width: clamp(300px, 80vw, 800px); 
+    height: auto;
+    object-fit: contain; 
+    z-index: 2; /* Main photo needs to be higher */
+}
+/* ======================= TEAM SECTION FIXES ======================= */
+
+.team-section-bg {
+    /* FIX 1: REMOVED BACKGROUND IMAGE AND ATTACHMENT */
+    background: none; 
+    background-color: transparent; 
+    background-attachment: scroll; /* Ensures image scrolls with section */
+    
+    position: relative;
+    z-index: 1; 
+    
+    /* MODIFIED: Use space-between to push the content (h2, image, team-grid) to the top and bottom */
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+
+/* H2 Positioning (Flow control) */
+#team-section h2 {
+    margin: 8rem 0 0 0; /* Add top margin to clear the navigation bar area and top arrow */
+    text-align: center;
+    z-index: 2;
+    padding: 0;
+    width: 100%;
+}
+
+/* Modify the team grid structure to place names near the bottom */
+#team-section .team-grid {
+    margin-bottom: 8rem; /* Add bottom margin to clear the scroll-down arrow area */
+    
+    max-width: 900px;
+    grid-template-columns: repeat(4, 1fr); 
+    display: grid; 
+    padding-bottom: 0; 
+    z-index: 2;
+    margin-left: auto; /* Center the grid container horizontally */
+    margin-right: auto;
+}
+
+/* Styling for individual team members */
+#team-section .team-member {
+    /* Ensure background is transparent, revealing the underlying image */
+    background: none;
+    box-shadow: none;
+    color: #ffffff;
+    /* Increase text shadow for better contrast against the background image */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1); 
+    text-align: center;
+    padding: 10px 5px;
+}
+
+#team-section .team-member h3 {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+#team-section .team-member p {
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    margin: 0;
+    color: #F0E68C; /* Use the gold accent color for roles */
 }
