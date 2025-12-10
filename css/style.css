@@ -126,8 +126,7 @@ a {
 /* NEW: Scroll Up Button Container (Placed at top center) */
 .scroll-up-btn-container {
     position: absolute;
-    /* Adjusted from 3rem to 5rem for better vertical centering, clearing the nav bar area */
-    top: 5rem; 
+    top: 2rem; 
     
     /* Center it horizontally using the margin auto trick */
     left: 0;
@@ -150,8 +149,7 @@ a {
 /* NEW: Scroll Down Button Container (Placed at bottom center) */
 .scroll-down-btn-container {
     position: absolute;
-    /* Place it 3rem from the bottom of the section */
-    bottom: 3rem; 
+    bottom: 2rem; 
     
     /* Center it horizontally using the margin auto trick */
     left: 0;
