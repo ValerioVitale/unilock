@@ -204,7 +204,6 @@ a {
 
 .main-nav a {
     font-weight: bold;
-    /* FONT INHERITED FROM BODY, Removed redundant font-family */
     font-size: 1rem;
     padding: 0.5rem 0.5rem;
     color: #ffffff;
@@ -277,7 +276,8 @@ a {
 
 /* Team Section Heading */
 #team-section h2 {
-    margin: 5rem 0 0 0; /* Clear nav and top arrow */
+    /* Adjusted margin again, from 3rem to 10rem to move it lower */
+    margin: 10rem 0 0 0; /* Clear nav and top arrow */
     text-align: center;
     z-index: 2;
     padding: 0;
@@ -368,6 +368,11 @@ a {
     #team-section {
         max-width: 100vw !important;
     }
+    
+    /* Adjusted for mobile screens to prevent large empty space at top */
+    #team-section h2 {
+        margin-top: 5rem;
+    }
 
     .team-visuals-wrapper {
         min-height: 40vh;
@@ -382,10 +387,6 @@ a {
 
     .team-photo-img {
         width: clamp(200px, 90vw, 400px);
-    }
-
-    #team-section h2 {
-        margin-top: 3rem;
     }
 }
 
