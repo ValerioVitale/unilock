@@ -4,10 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
+    /* --- FONT CHANGE: Primary font set to Cambria --- */
+    font-family: Cambria, 'Times New Roman', Times, serif;
+    
     color: #ffffff;
     background-color: #fff;
     line-height: 1.6;
@@ -46,12 +48,12 @@ a {
     bottom: 3rem;
     left: 0;
     right: 0;
-    margin: 0 auto; /* Center horizontally */
+    margin: 0 auto;
     z-index: 3;
     display: block;
     width: 100%;
     padding: 0 1rem;
-    text-align: center; /* Centers the inline-block button inside */
+    text-align: center;
     color: #fff;
     height: auto;
 }
@@ -202,7 +204,7 @@ a {
 
 .main-nav a {
     font-weight: bold;
-    font-family: Cambria, 'Times New Roman', serif;
+    /* FONT INHERITED FROM BODY, Removed redundant font-family */
     font-size: 1rem;
     padding: 0.5rem 0.5rem;
     color: #ffffff;
@@ -303,6 +305,7 @@ a {
     text-align: center;
 }
 
+/* Applied text-shadow to team member text */
 #team-section .team-member {
     background: none;
     box-shadow: none;
