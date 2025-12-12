@@ -1,4 +1,4 @@
-/* ======================= General Reset ======================= */
+/* ======================= General Reset & Base Styles ======================= */
 
 * {
     margin: 0;
@@ -11,17 +11,14 @@ body {
     color: #ffffff;
     background-color: #fff;
     line-height: 1.6;
-    padding-top: 0; 
+    padding-top: 0;
 
     /* APPLY GRADIENT OVERLAY ON TOP OF THE BACKGROUND IMAGE */
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('../images/hero.jpg');
-    
-    background-attachment: scroll; 
-    background-repeat: repeat-y; 
-    
-    /* Set size to 100% width, auto height for seamless tiling across devices */
-    background-size: 100% auto; 
-    
+
+    background-attachment: scroll;
+    background-repeat: repeat-y;
+    background-size: 100% auto; /* 100% width, auto height for seamless tiling */
     background-position: center top;
 }
 
@@ -30,172 +27,129 @@ a {
     color: inherit;
 }
 
-/* ======================= LANDING SECTION (Formerly Hero) ======================= */
+/* ======================= LANDING SECTION ======================= */
 
 .landing {
     position: relative;
     height: 100vh;
     min-height: 100vh;
-    
-    /* REMOVE BACKGROUND FROM LANDING—it now inherits from body */
-    background: none; 
+    background: none; /* Inherits background from body */
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-
     overflow: hidden;
 }
 
 /* Landing content (button container) */
-
 .landing-content {
-    /* Set the position */
     position: absolute;
     bottom: 3rem;
-    
-    /* FIX FOR BUTTON CENTERING: Use margin auto with left/right anchors */
     left: 0;
     right: 0;
-    margin: 0 auto;
-    
+    margin: 0 auto; /* Center horizontally */
     z-index: 3;
     display: block;
     width: 100%;
     padding: 0 1rem;
-    
-    /* This centers the inline-block button inside the container */
-    text-align: center;
+    text-align: center; /* Centers the inline-block button inside */
     color: #fff;
     height: auto;
 }
 
-/* Main Logo Styling - Centered and Responsive */
+/* Main Logo Styling */
 .main-logo {
     z-index: 2;
     margin: 0;
-    /* Responsive sizing remains correct */
     width: clamp(200px, 40vw, 500px);
     height: auto;
     max-width: 90%;
 }
 
-/* Hero button container (sits at the bottom) */
-
+/* Hero scroll-down button */
 .hero-btn {
-    /* Removed margin-top: auto and margin-bottom: 3rem */
     margin-bottom: 0;
-    display: inline-block; /* Essential for text-align: center to work */
+    display: inline-block;
     z-index: 3;
 }
 
-    .hero-btn img {
-        display: block;
-        /* MODIFIED: Reduced global size by 20% */
-        width: clamp(64px, 8vw, 120px); 
-        height: auto;
-        transition: transform 0.3s ease;
-    }
+.hero-btn img {
+    display: block;
+    width: clamp(64px, 8vw, 120px);
+    height: auto;
+    transition: transform 0.3s ease;
+}
 
-        .hero-btn img:hover {
-            /* Scroll Down Hover (Moves down) */
-            transform: scale(1.1) translateY(26px); 
-        }
+.hero-btn img:hover {
+    /* Scroll Down Hover (Moves down) */
+    transform: scale(1.1) translateY(26px);
+}
 
-/* ======================= Sections ======================= */
+/* ======================= Sections (Full Viewport) ======================= */
 
 .section {
-    /* MODIFIED: Set height to full viewport height for full-page experience */
-    height: 100vh;
-    /* ADDED: Must be relative so the scroll button is positioned correctly */
-    position: relative; 
-    
-    /* MODIFIED: Use Flexbox to vertically align the content in the center */
+    height: 100vh; /* Full viewport height */
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
-    max-width: 1000px;
+    justify-content: center; /* Center content vertically */
+    max-width: 1000px; /* Base site max width */
     margin: auto;
-    background-color: transparent; 
-    margin-bottom: 0; 
-    
-    /* ADDED: Add padding back to the sides for content flow */
+    background-color: transparent;
     padding: 0 2rem;
 }
 
-/* NEW: Scroll Up Button Container (Placed at top center) */
-.scroll-up-btn-container {
-    position: absolute;
-    top: 2rem; 
-    
-    /* Center it horizontally using the margin auto trick */
-    left: 0;
-    right: 0;
-    margin: 0 auto; 
-    
-    z-index: 10;
-    width: 100%; 
-    padding: 0 1rem;
-    
-    /* Center the inline-block button */
-    text-align: center;
-    height: auto;
-    
-    /* Add a small animation delay to make it appear smoothly */
-    animation: fadeIn 1.2s ease forwards;
-    animation-delay: 0.5s; 
+.section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
 }
 
-/* NEW: Scroll Down Button Container (Placed at bottom center) */
+.section p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Section Scroll Button Containers (Up/Down) */
+.scroll-up-btn-container,
 .scroll-down-btn-container {
     position: absolute;
-    bottom: 2rem; 
-    
-    /* Center it horizontally using the margin auto trick */
     left: 0;
     right: 0;
-    margin: 0 auto; 
-    
+    margin: 0 auto;
     z-index: 10;
-    width: 100%; 
+    width: 100%;
     padding: 0 1rem;
-    
-    /* Center the inline-block button */
     text-align: center;
     height: auto;
-    
-    /* Add a small animation delay to make it appear smoothly */
     animation: fadeIn 1.2s ease forwards;
-    animation-delay: 0.5s; 
+    animation-delay: 0.5s;
 }
 
-/* === SIZE REDUCTION FOR ALL SECTION BUTTONS (70% reduction) === */
+.scroll-up-btn-container {
+    top: 2rem;
+}
+
+.scroll-down-btn-container {
+    bottom: 2rem;
+}
+
+/* Size reduction for all section buttons (70% reduction) */
 .scroll-up-btn-container .hero-btn img,
 .scroll-down-btn-container .hero-btn img {
-    /* Scale the image down to 30% (70% reduction) */
     transform: scale(0.3);
-    /* Ensure the hover effect overrides this base scale */
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
-/* Hover effect for the UP button (targets the image inside the up container) */
+/* Hover effect for the UP button */
 .scroll-up-btn-container .hero-btn img:hover {
-    /* Scale back up slightly more than the base scale, and move UP */
-    transform: scale(0.4) translateY(-26px); 
+    transform: scale(0.4) translateY(-26px);
 }
 
 /* Hover effect for the DOWN button */
 .scroll-down-btn-container .hero-btn img:hover {
-    /* Scale back up slightly more than the base scale, and move DOWN */
-    transform: scale(0.4) translateY(26px); 
+    transform: scale(0.4) translateY(26px);
 }
-/* =============================================================== */
 
-    .section h2 {
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        margin-bottom: 2rem;
-    }
-/* Image Grid */
+/* ======================= Image Grid ======================= */
 
 .image-grid {
     display: grid;
@@ -203,27 +157,10 @@ a {
     gap: 1.5rem;
 }
 
-    .image-grid img {
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover;
-    }
-
-/* Team Grid */
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns for 4 members */
-    gap: 2rem;
-}
-
-.team-member {
-    text-align: center;
-}
-
-.section p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+.image-grid img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
 }
 
 /* ======================= Fade-in Animations ======================= */
@@ -244,183 +181,133 @@ a {
 /* ======================= Navigation Bar ======================= */
 
 .nav-bar {
-    /* Position is absolute, so it scrolls away with the landing section */
-    position: absolute; 
+    position: absolute;
     top: 0;
     width: 100%;
-    /* Transparent and no shadow */
-    background-color: transparent; 
+    background-color: transparent;
     box-shadow: none;
-    z-index: 10; 
+    z-index: 10;
     padding: 1rem 0;
-    /* Transition removed */
     transition: none;
 }
 
 .main-nav {
     max-width: 1000px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
     align-items: center;
 }
 
-    .main-nav a {
-        font-weight: bold;
-        font-family: Cambria, 'Times New Roman', serif;
-        font-size: 1rem;
-        padding: 0.5rem 0.5rem;
-        color: #ffffff; 
-        transition: color 0.2s ease, transform 0.2s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .main-nav a:hover {
-        /* Gold hover for dark background */
-        color: #F0E68C; /* Light Gold */
-        transform: translateY(-2px);
-    }
-
-/* ======================= Responsive Adjustments ======================= */
-
-/* Portrait smartphones */
-@media (max-width: 480px) {
-    .landing {
-        background-size: contain;
-        background-position: center top;
-    }
-
-    .hero-btn img {
-        /* MODIFIED: Reduced size by 20% for mobile */
-        width: clamp(40px, 12vw, 64px);
-    }
-    
-    /* Navigation bar adjustments for portrait phones */
-    .main-nav {
-        /* Reduce horizontal padding significantly */
-        padding: 0 0.5rem; 
-        /* Ensure links wrap instead of being cut off */
-        flex-wrap: wrap; 
-        /* Use space-evenly to distribute links across the available width */
-        justify-content: space-evenly; 
-        /* Add some vertical space between wrapped items if they stack */
-        gap: 0.5rem 0.2rem; 
-    }
-    
-    .main-nav a {
-        /* Reduce font size slightly for better fit */
-        font-size: 0.9rem;
-        /* Reduce padding around links slightly */
-        padding: 0.5rem 0.3rem;
-    }
-    
-    /* Mobile team member spacing fix */
-    #team-section .team-grid {
-        gap: 0.5rem;
-        /* Adjusted bottom position for mobile */
-        margin-bottom: 50px; /* Use margin instead of absolute bottom */
-    }
+.main-nav a {
+    font-weight: bold;
+    font-family: Cambria, 'Times New Roman', serif;
+    font-size: 1rem;
+    padding: 0.5rem 0.5rem;
+    color: #ffffff;
+    transition: color 0.2s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Tablets / small desktops */
-@media (max-width: 768px) {
-    .landing {
-        background-size: cover;
-        background-position: center;
-    }
-
-    .hero-btn img {
-        /* MODIFIED: Reduced size by 20% for tablets */
-        width: clamp(64px, 8vw, 120px);
-    }
+.main-nav a:hover {
+    color: #F0E68C; /* Light Gold */
+    transform: translateY(-2px);
 }
 
-/* Landscape orientation adjustments */
-@media (orientation: landscape) {
-    .landing {
-        height: 70vh;
-    }
+/* ======================= TEAM SECTION STYLES ======================= */
+
+/* Team section wrapper to allow it to stretch wider than other sections */
+#team-section {
+    max-width: 1500px;
+    width: 95vw;
+    margin: auto;
 }
 
+/* Team section container for positioning of content */
+.team-section-bg {
+    background: none;
+    background-color: transparent;
+    background-attachment: scroll;
+    position: relative;
+    z-index: 1;
+    justify-content: space-between; /* Push h2 and team-grid to top/bottom */
+    align-items: center;
+}
 
-/* NEW: Style for the team background <img> tag */
+/* Team visuals wrapper (context for layered images) */
+.team-visuals-wrapper {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    min-height: 50vh;
+    margin: 0;
+}
+
+/* Background image (larger, lower z-index) */
 .team-photo-background-img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    z-index: 1; 
-    
-    /* === CONTROLLING SIZE HERE === */
-    max-width: 1500px; /* Set max-width for absolute sizing */
-    width: clamp(500px, 90vw, 1400px); /* Responsive size definition (Max 1500px) */
-    /* ============================ */
-    
+    z-index: 1;
+    max-width: 90%;
+    width: clamp(2000px, 90vw, 2600px);
     height: auto;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
-/* Ensure the main team photo has a higher z-index to be on top */
+/* Foreground image (smaller, higher z-index) */
 .team-photo-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
     display: block;
-    margin: 0 auto;
-    max-width: 90%; 
-    width: clamp(300px, 80vw, 800px); 
+    max-width: 90%;
+    width: clamp(800px, 95vw, 1000px);
     height: auto;
-    object-fit: contain; 
-    z-index: 2; /* Main photo needs to be higher */
-}
-/* ======================= TEAM SECTION FIXES ======================= */
-
-.team-section-bg {
-    /* FIX 1: REMOVED BACKGROUND IMAGE AND ATTACHMENT */
-    background: none; 
-    background-color: transparent; 
-    background-attachment: scroll; /* Ensures image scrolls with section */
-    
-    position: relative;
-    z-index: 1; 
-    
-    /* MODIFIED: Use space-between to push the content (h2, image, team-grid) to the top and bottom */
-    justify-content: space-between; 
-    align-items: center; 
+    object-fit: contain;
+    z-index: 2;
 }
 
-
-/* H2 Positioning (Flow control) */
+/* Team Section Heading */
 #team-section h2 {
-    margin: 8rem 0 0 0; /* Add top margin to clear the navigation bar area and top arrow */
+    margin: 5rem 0 0 0; /* Clear nav and top arrow */
     text-align: center;
     z-index: 2;
     padding: 0;
     width: 100%;
 }
 
-/* Modify the team grid structure to place names near the bottom */
+/* Team Grid (names/roles) */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
 #team-section .team-grid {
-    margin-bottom: 8rem; /* Add bottom margin to clear the scroll-down arrow area */
-    
-    max-width: 900px;
-    grid-template-columns: repeat(4, 1fr); 
-    display: grid; 
-    padding-bottom: 0; 
+    margin-bottom: 5rem; /* Clear scroll-down arrow */
+    max-width: 1400px;
+    padding-bottom: 0;
     z-index: 2;
-    margin-left: auto; /* Center the grid container horizontally */
+    margin-left: auto; /* Center horizontally */
     margin-right: auto;
 }
 
-/* Styling for individual team members */
+/* Individual team member styling */
+.team-member {
+    text-align: center;
+}
+
 #team-section .team-member {
-    /* Ensure background is transparent, revealing the underlying image */
     background: none;
     box-shadow: none;
     color: #ffffff;
-    /* Increase text shadow for better contrast against the background image */
-    text-shadow: 0 0 5px rgba(0, 0, 0, 1); 
-    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
     padding: 10px 5px;
 }
 
@@ -432,5 +319,76 @@ a {
 #team-section .team-member p {
     font-size: clamp(0.8rem, 1.5vw, 1.1rem);
     margin: 0;
-    color: #F0E68C; /* Use the gold accent color for roles */
+    color: #F0E68C; /* Light Gold accent color */
+}
+
+
+/* ======================= Responsive Adjustments ======================= */
+
+/* Tablets / small desktops */
+@media (max-width: 768px) {
+    .landing {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-btn img {
+        width: clamp(64px, 8vw, 120px);
+    }
+}
+
+/* Portrait smartphones */
+@media (max-width: 480px) {
+    .landing {
+        background-size: contain;
+        background-position: center top;
+    }
+
+    .hero-btn img {
+        width: clamp(40px, 12vw, 64px);
+    }
+
+    /* Navigation bar adjustments */
+    .main-nav {
+        padding: 0 0.5rem;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 0.5rem 0.2rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.3rem;
+    }
+
+    /* Team section adjustments */
+    #team-section {
+        max-width: 100vw !important;
+    }
+
+    .team-visuals-wrapper {
+        min-height: 40vh;
+    }
+
+    #team-section .team-grid {
+        max-width: 90vw;
+        grid-template-columns: repeat(2, 1fr); /* Change from 4 to 2 columns */
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .team-photo-img {
+        width: clamp(200px, 90vw, 400px);
+    }
+
+    #team-section h2 {
+        margin-top: 3rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) {
+    .landing {
+        height: 70vh;
+    }
 }
