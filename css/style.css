@@ -48,7 +48,7 @@ a {
     z-index: 3;
     display: block;
     width: 100%;
-    padding: 0 1rem;
+    padding: 2rem;
     text-align: center;
     color: #fff;
     height: auto;
@@ -112,6 +112,7 @@ a {
     margin: 0 auto;
     z-index: 10;
     width: 100%;
+    /* Default padding (Desktop/Tablet) */
     padding: 0 1rem;
     text-align: center;
     height: auto;
@@ -328,6 +329,12 @@ a {
         background-position: center top;
     }
 
+
+    .scroll-up-btn-container,
+    .scroll-down-btn-container {
+        padding: 2rem;
+    }
+
     /* Landing arrow size */
     .hero-btn img {
         width: clamp(40px, 12vw, 64px);
@@ -340,7 +347,7 @@ a {
         width: clamp(40px, 12vw, 64px); 
     }
     
-    /* Hover effects for mobile-sized arrows - RESTORED LARGE TRANSLATEY */
+    /* Hover effects for mobile-sized arrows */
     .scroll-up-btn-container .hero-btn img:hover {
         transform: scale(1.1) translateY(-26px); 
     }
