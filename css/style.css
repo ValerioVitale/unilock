@@ -7,20 +7,17 @@
 }
 
 body {
-    /* --- FONT CHANGE: Primary font set to Cambria --- */
     font-family: Cambria, 'Times New Roman', Times, serif;
-    
     color: #ffffff;
     background-color: #fff;
     line-height: 1.6;
     padding-top: 0;
 
-    /* APPLY GRADIENT OVERLAY ON TOP OF THE BACKGROUND IMAGE */
+    /* Background with Gradient Overlay */
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('../images/hero.jpg');
-
     background-attachment: scroll;
     background-repeat: repeat-y;
-    background-size: 100% auto; /* 100% width, auto height for seamless tiling */
+    background-size: 100% auto;
     background-position: center top;
 }
 
@@ -35,14 +32,13 @@ a {
     position: relative;
     height: 100vh;
     min-height: 100vh;
-    background: none; /* Inherits background from body */
+    background: none;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-/* Landing content (button container) */
 .landing-content {
     position: absolute;
     bottom: 3rem;
@@ -58,7 +54,6 @@ a {
     height: auto;
 }
 
-/* Main Logo Styling */
 .main-logo {
     z-index: 2;
     margin: 0;
@@ -67,7 +62,6 @@ a {
     max-width: 90%;
 }
 
-/* Hero scroll-down button */
 .hero-btn {
     margin-bottom: 0;
     display: inline-block;
@@ -82,19 +76,19 @@ a {
 }
 
 .hero-btn img:hover {
-    /* Scroll Down Hover (Moves down) */
+    /* Landing Arrow Hover (Applies globally, including mobile) */
     transform: scale(1.1) translateY(26px);
 }
 
-/* ======================= Sections (Full Viewport) ======================= */
+/* ======================= SECTIONS & SCROLL BUTTONS ======================= */
 
 .section {
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    max-width: 1000px; /* Base site max width */
+    justify-content: center;
+    max-width: 1000px;
     margin: auto;
     background-color: transparent;
     padding: 0 2rem;
@@ -110,7 +104,6 @@ a {
     font-size: 1.1rem;
 }
 
-/* Section Scroll Button Containers (Up/Down) */
 .scroll-up-btn-container,
 .scroll-down-btn-container {
     position: absolute;
@@ -134,24 +127,23 @@ a {
     bottom: 2rem;
 }
 
-/* Size reduction for all section buttons (70% reduction) */
+/* Default size reduction for non-landing section buttons (Desktop/Tablet) */
 .scroll-up-btn-container .hero-btn img,
 .scroll-down-btn-container .hero-btn img {
     transform: scale(0.3);
     transition: transform 0.3s ease;
 }
 
-/* Hover effect for the UP button */
+/* Hover effects for non-landing buttons (Desktop/Tablet) */
 .scroll-up-btn-container .hero-btn img:hover {
-    transform: scale(0.4) translateY(-26px);
+    transform: scale(0.4) translateY(-26px); 
 }
 
-/* Hover effect for the DOWN button */
 .scroll-down-btn-container .hero-btn img:hover {
-    transform: scale(0.4) translateY(26px);
+    transform: scale(0.4) translateY(26px); 
 }
 
-/* ======================= Image Grid ======================= */
+/* ======================= Image Grid & Animations ======================= */
 
 .image-grid {
     display: grid;
@@ -164,8 +156,6 @@ a {
     border-radius: 12px;
     object-fit: cover;
 }
-
-/* ======================= Fade-in Animations ======================= */
 
 .fade-in {
     opacity: 0;
@@ -213,31 +203,28 @@ a {
 }
 
 .main-nav a:hover {
-    color: #F0E68C; /* Light Gold */
+    color: #F0E68C;
     transform: translateY(-2px);
 }
 
 /* ======================= TEAM SECTION STYLES ======================= */
 
-/* Team section wrapper to allow it to stretch wider than other sections */
 #team-section {
     max-width: 1500px;
     width: 95vw;
     margin: auto;
 }
 
-/* Team section container for positioning of content */
 .team-section-bg {
     background: none;
     background-color: transparent;
     background-attachment: scroll;
     position: relative;
     z-index: 1;
-    justify-content: space-between; /* Push h2 and team-grid to top/bottom */
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Team visuals wrapper (context for layered images) */
 .team-visuals-wrapper {
     position: relative;
     width: 100%;
@@ -246,7 +233,6 @@ a {
     margin: 0;
 }
 
-/* Background image (larger, lower z-index) */
 .team-photo-background-img {
     position: absolute;
     top: 50%;
@@ -259,7 +245,6 @@ a {
     object-fit: contain;
 }
 
-/* Foreground image (smaller, higher z-index) */
 .team-photo-img {
     position: absolute;
     top: 50%;
@@ -276,15 +261,13 @@ a {
 
 /* Team Section Heading */
 #team-section h2 {
-    /* Adjusted margin again, from 3rem to 10rem to move it lower */
-    margin: 10rem 0 0 0; /* Clear nav and top arrow */
+    margin: 10rem 0 0 0;
     text-align: center;
     z-index: 2;
     padding: 0;
     width: 100%;
 }
 
-/* Team Grid (names/roles) */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -292,20 +275,18 @@ a {
 }
 
 #team-section .team-grid {
-    margin-bottom: 5rem; /* Clear scroll-down arrow */
+    margin-bottom: 5rem;
     max-width: 1400px;
     padding-bottom: 0;
     z-index: 2;
-    margin-left: auto; /* Center horizontally */
+    margin-left: auto;
     margin-right: auto;
 }
 
-/* Individual team member styling */
 .team-member {
     text-align: center;
 }
 
-/* Applied text-shadow to team member text */
 #team-section .team-member {
     background: none;
     box-shadow: none;
@@ -322,7 +303,7 @@ a {
 #team-section .team-member p {
     font-size: clamp(0.8rem, 1.5vw, 1.1rem);
     margin: 0;
-    color: #F0E68C; /* Light Gold accent color */
+    color: #F0E68C;
 }
 
 
@@ -347,10 +328,27 @@ a {
         background-position: center top;
     }
 
+    /* Landing arrow size */
     .hero-btn img {
         width: clamp(40px, 12vw, 64px);
     }
 
+    /* Section arrows use clamp() for responsive scaling */
+    .scroll-up-btn-container .hero-btn img,
+    .scroll-down-btn-container .hero-btn img {
+        transform: none; 
+        width: clamp(40px, 12vw, 64px); 
+    }
+    
+    /* Hover effects for mobile-sized arrows - RESTORED LARGE TRANSLATEY */
+    .scroll-up-btn-container .hero-btn img:hover {
+        transform: scale(1.1) translateY(-26px); 
+    }
+
+    .scroll-down-btn-container .hero-btn img:hover {
+        transform: scale(1.1) translateY(26px);
+    }
+    
     /* Navigation bar adjustments */
     .main-nav {
         padding: 0 0.5rem;
@@ -369,7 +367,6 @@ a {
         max-width: 100vw !important;
     }
     
-    /* Adjusted for mobile screens to prevent large empty space at top */
     #team-section h2 {
         margin-top: 5rem;
     }
@@ -380,7 +377,7 @@ a {
 
     #team-section .team-grid {
         max-width: 90vw;
-        grid-template-columns: repeat(2, 1fr); /* Change from 4 to 2 columns */
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         margin-bottom: 2rem;
     }
