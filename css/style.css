@@ -144,12 +144,57 @@ a {
     transform: scale(0.4) translateY(26px); 
 }
 
+/* ======================= OVERVIEW SECTION DESKTOP LAYOUT ======================= */
+
+.overview-content-wrapper {
+    display: flex; /* Enable flex container */
+    flex-direction: row; /* Default to row on desktop */
+    align-items: center; /* Center items vertically */
+    gap: 3rem; /* Space between the image and text columns */
+    width: 100%;
+    margin-top: 2rem; /* Give some space below the top scroll arrow */
+    margin-bottom: 2rem; /* Give some space above the bottom scroll arrow */
+}
+
+.overview-image-container {
+    flex: 1; /* Takes up 50% of the space */
+    max-width: 50%;
+    text-align: center;
+}
+
+.overview-main-image {
+    width: 100%;
+    max-width: 350px; /* Constraint image size */
+    height: auto;
+    object-fit: contain;
+}
+
+.overview-text-container {
+    flex: 1; /* Takes up 50% of the space */
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjust heading/paragraph styling within the new container */
+.overview-text-container h2,
+.overview-text-container p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* Reset image-grid alignment for desktop view */
+.overview-text-container .image-grid {
+    margin-top: 1rem;
+}
+
+
 /* ======================= Image Grid & Animations ======================= */
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Reduced min size for small cards next to text */
+    gap: 1rem;
 }
 
 .image-grid img {
@@ -172,7 +217,7 @@ a {
 }
 
 /* ======================= Navigation Bar ======================= */
-
+/* ... (Navigation Bar styles remain unchanged) ... */
 .nav-bar {
     position: absolute;
     top: 0;
@@ -209,7 +254,7 @@ a {
 }
 
 /* ======================= TEAM SECTION STYLES ======================= */
-
+/* ... (Team Section styles remain unchanged) ... */
 #team-section {
     max-width: 1500px;
     width: 95vw;
@@ -320,6 +365,27 @@ a {
     .hero-btn img {
         width: clamp(64px, 8vw, 120px);
     }
+    
+    /* OVERVIEW: Stacked Layout on Tablet/Mobile */
+    .overview-content-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .overview-image-container,
+    .overview-text-container {
+        flex: none;
+        max-width: 100%;
+    }
+    
+    /* Ensure image is centered on smaller screens */
+    .overview-image-container {
+        order: -1; /* Place image above text on mobile/tablet */
+    }
+
+    .overview-main-image {
+        max-width: 80%; /* Use slightly less width on small screens */
+    }
 }
 
 /* Portrait smartphones */
@@ -329,7 +395,12 @@ a {
         background-position: center top;
     }
 
+    /* Landing arrow spacing */
+    .landing-content {
+        padding: 0 2rem; 
+    }
 
+    /* Section arrow spacing */
     .scroll-up-btn-container,
     .scroll-down-btn-container {
         padding: 2rem;
@@ -380,13 +451,6 @@ a {
 
     .team-visuals-wrapper {
         min-height: 40vh;
-    }
-
-    #team-section .team-grid {
-        max-width: 90vw;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        margin-bottom: 2rem;
     }
 
     .team-photo-img {
