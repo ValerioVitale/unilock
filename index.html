@@ -8,160 +8,169 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <h1 class="visually-hidden">Unilock Card Game</h1>
+
     <header class="nav-bar">
         <nav class="main-nav">
-            <a href="#overview-section">Overview</a>
-            <a href="#team-section">Team</a>
-            <a href="#timeline-section">Timeline</a>
-            <a href="#lore-section">Lore</a>
-            <a href="#game-mechanics-section">Mechanics</a>
-            <a href="#sample-cards-section">Cards</a>
-            <a href="#contact-section">Contact</a>
+            <a href="#landing-section" class="nav-link">Home</a> 
+            
+            <a href="#overview-section" class="nav-link">Overview</a>
+            <a href="#team-section" class="nav-link">Team</a>
+            <a href="#timeline-section" class="nav-link">Timeline</a>
+            <a href="#lore-section" class="nav-link">Lore</a>
+            <a href="#game-mechanics-section" class="nav-link">Mechanics</a>
+            
+            <a href="#turn-section" class="nav-link">Turns</a>
+            
+            <a href="#sample-cards-section" class="nav-link">Cards</a>
+            <a href="#contact-section" class="nav-link">Contact</a>
         </nav>
     </header>
     
     <section class="landing" id="landing-section">
-        <img src="images/your-logo.png" alt="Project Logo" class="main-logo fade-in" style="animation-delay: 0.1s;">
+        <img src="images/your-logo.png" alt="Unilock Logo" class="main-logo fade-in">
 
         <div class="landing-content fade-in">
-            <a href="#overview-section" class="hero-btn fade-in" style="animation-delay: 0.5s;">
-                <img src="images/button-image-down.png" alt="Explore the Project">
+            <a href="#overview-section" class="hero-btn" aria-label="Scroll to Overview">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="overview-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#landing-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#landing-section" class="hero-btn" aria-label="Scroll up to Landing">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
         <div class="overview-content-wrapper">
             <div class="overview-image-container fade-in">
-                <img src="images/overview-card.png" alt="Overview Card Example" class="overview-main-image">
+                <img src="images/overview-card.png" alt="Sample Unilock Card" class="overview-main-image">
             </div>
 
             <div class="overview-text-container fade-in">
                 <h2>Project Overview</h2>
                 <p>Introduce your card game here. Describe the concept, the vision, and the unique aspects.</p>
                 <div class="image-grid">
-                    <img src="images/card1.jpg" alt="Card example">
-                    <img src="images/card2.jpg" alt="Card example">
-                    <img src="images/card3.jpg" alt="Card example">
+                    <img src="images/card1.jpg" alt="Card example 1">
+                    <img src="images/card2.jpg" alt="Card example 2">
+                    <img src="images/card3.jpg" alt="Card example 3">
                 </div>
             </div>
         </div>
         <div class="scroll-down-btn-container">
-            <a href="#team-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#team-section" class="hero-btn" aria-label="Scroll down to Team">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="team-section" class="section team-section-bg">
         <div class="scroll-up-btn-container">
-            <a href="#overview-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#overview-section" class="hero-btn" aria-label="Scroll up to Overview">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
-        <h2>Team</h2> <img src="images/team-photo-background.png" alt="Team Photo Background" class="team-photo-background-img">
-        <img src="images/team-photo.png" alt="Team Photo" class="team-photo-img">
+        <h2>Team</h2> 
+        <div class="team-visuals-wrapper">
+            <img src="images/team-photo-background.png" alt="" class="team-photo-background-img" aria-hidden="true">
+            <img src="images/team-photo.png" alt="The Unilock Development Team" class="team-photo-img">
+        </div>
         
         <div class="scroll-down-btn-container">
-            <a href="#timeline-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#timeline-section" class="hero-btn" aria-label="Scroll down to Timeline">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="timeline-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#team-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#team-section" class="hero-btn" aria-label="Scroll up to Team">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
         <h2>Project Timeline</h2>
-        
-        <img src="images/timeline-image.png" alt="Project Timeline Graphic" class="timeline-main-image">
+        <img src="images/timeline-image.png" alt="Project Roadmap Graphic" class="timeline-main-image">
 
         <div class="scroll-down-btn-container">
-            <a href="#lore-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#lore-section" class="hero-btn" aria-label="Scroll down to Lore">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="lore-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#timeline-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#timeline-section" class="hero-btn" aria-label="Scroll up to Timeline">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
         <h2>The World & Lore</h2>
         <p>Dive into the rich narrative, factions, and history that define the game's setting.</p>
         <div class="scroll-down-btn-container">
-            <a href="#game-mechanics-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#game-mechanics-section" class="hero-btn" aria-label="Scroll down to Mechanics">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="game-mechanics-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#lore-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#lore-section" class="hero-btn" aria-label="Scroll up to Lore">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
         <h2>Core Game Mechanics</h2>
         <p>An explanation of the resource system, combat rules, and unique interactions.</p>
         <div class="scroll-down-btn-container">
-            <a href="#turn-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#turn-section" class="hero-btn" aria-label="Scroll down to Turn Structure">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="turn-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#game-mechanics-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#game-mechanics-section" class="hero-btn" aria-label="Scroll up to Mechanics">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
         <h2>Game Turn Structure</h2>
         <p>Step-by-step phases of a standard game turn, from draw to end phase.</p>
         <div class="scroll-down-btn-container">
-            <a href="#sample-cards-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#sample-cards-section" class="hero-btn" aria-label="Scroll down to Sample Cards">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
 
     <section id="sample-cards-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#turn-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#turn-section" class="hero-btn" aria-label="Scroll up to Turn Structure">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
         <h2>Sample Cards & Art</h2>
         <p>A gallery showcasing high-resolution card art and finalized template designs.</p>
         <div class="scroll-down-btn-container">
-            <a href="#contact-section" class="hero-btn">
-                <img src="images/button-image-down.png" alt="Next Section">
+            <a href="#contact-section" class="hero-btn" aria-label="Scroll down to Contact">
+                <img src="images/button-image-down.png" alt="Down Arrow">
             </a>
         </div>
     </section>
     
     <section id="contact-section" class="section">
         <div class="scroll-up-btn-container">
-            <a href="#sample-cards-section" class="hero-btn">
-                <img src="images/button-image-up.png" alt="Previous Section">
+            <a href="#sample-cards-section" class="hero-btn" aria-label="Scroll up to Sample Cards">
+                <img src="images/button-image-up.png" alt="Up Arrow">
             </a>
         </div>
         
