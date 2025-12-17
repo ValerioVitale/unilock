@@ -147,30 +147,30 @@ a {
 /* ======================= OVERVIEW SECTION DESKTOP LAYOUT ======================= */
 
 .overview-content-wrapper {
-    display: flex; /* Enable flex container */
-    flex-direction: row; /* Default to row on desktop */
-    align-items: center; /* Center items vertically */
-    gap: 3rem; /* Space between the image and text columns */
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 3rem; 
     width: 100%;
-    margin-top: 2rem; /* Give some space below the top scroll arrow */
-    margin-bottom: 2rem; /* Give some space above the bottom scroll arrow */
+    margin-top: 2rem; 
+    margin-bottom: 2rem; 
 }
 
 .overview-image-container {
-    flex: 1; /* Takes up 50% of the space */
+    flex: 1; 
     max-width: 50%;
     text-align: center;
 }
 
 .overview-main-image {
     width: 100%;
-    max-width: 350px; /* Constraint image size */
+    max-width: 350px; 
     height: auto;
     object-fit: contain;
 }
 
 .overview-text-container {
-    flex: 1; /* Takes up 50% of the space */
+    flex: 1; 
     max-width: 50%;
     display: flex;
     flex-direction: column;
@@ -188,12 +188,51 @@ a {
     margin-top: 1rem;
 }
 
+/* ======================= TIMELINE SECTION IMAGE LAYOUT ======================= */
+
+#timeline-section {
+    max-width: 1500px;
+    width: 95vw;
+    margin: auto;
+}
+
+/* Desktop: Align content to the top to place the title high */
+#timeline-section {
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+/* Timeline Section Heading */
+#timeline-section h2 {
+    margin: 10rem 0 0 0;
+    text-align: center;
+    z-index: 2;
+    padding: 0;
+    width: 100%;
+    max-width: 1000px; 
+}
+
+/* Timeline Image Styling (Similar to Team Photo) */
+.timeline-main-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Center the image within the section */
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+    /* Allow it to be wide but contain itself within the screen */
+    width: 100%;
+    max-width: 1200px; 
+    height: auto;
+    object-fit: contain;
+}
+
 
 /* ======================= Image Grid & Animations ======================= */
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Reduced min size for small cards next to text */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
     gap: 1rem;
 }
 
@@ -217,7 +256,7 @@ a {
 }
 
 /* ======================= Navigation Bar ======================= */
-/* ... (Navigation Bar styles remain unchanged) ... */
+
 .nav-bar {
     position: absolute;
     top: 0;
@@ -254,7 +293,7 @@ a {
 }
 
 /* ======================= TEAM SECTION STYLES ======================= */
-/* ... (Team Section styles remain unchanged) ... */
+
 #team-section {
     max-width: 1500px;
     width: 95vw;
@@ -380,12 +419,36 @@ a {
     
     /* Ensure image is centered on smaller screens */
     .overview-image-container {
-        order: -1; /* Place image above text on mobile/tablet */
+        order: -1; 
     }
 
     .overview-main-image {
-        max-width: 80%; /* Use slightly less width on small screens */
+        max-width: 80%; 
     }
+    
+    /* === TIMELINE FIX: Adjust image size and centering for small screens === */
+    #timeline-section {
+        justify-content: center; /* Center all content vertically (Heading, Image, Arrows) */
+        /* BEGIN NEW ADDITION: Change flex direction to column-reverse for mobile order swap */
+        flex-direction: column-reverse; 
+    }
+    
+    .timeline-main-image {
+        position: relative; /* Change to relative positioning for flow */
+        transform: none; /* Remove transform for flow */
+        top: auto;
+        left: auto;
+        width: clamp(200px, 90vw, 400px); /* Sets a clamped size similar to team-photo */
+        margin: 2rem 0; /* Add margin above and below the now-relative image */
+    }
+
+    /* Adjust the heading to be at the top after the image swap */
+    #timeline-section h2 {
+        margin-top: 5rem; /* Reduced margin from 10rem to 5rem */
+        margin-bottom: 0;
+        order: 1; /* Set explicit order */
+    }
+    /* END NEW ADDITION */
 }
 
 /* Portrait smartphones */
