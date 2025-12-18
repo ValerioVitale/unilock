@@ -20,6 +20,10 @@ html {
     scroll-padding-top: 0; /* Set to 0 for pixel-perfect button alignment */
 }
 
+.section, .landing {
+    scroll-snap-align: start;
+}
+
 body {
     font-family: var(--font-main);
     color: var(--text-white);
@@ -244,4 +248,57 @@ body {
     }
 
     .main-nav a { font-size: 0.75rem; }
+}
+
+/* Add a subtle lift and glow to cards on hover */
+.image-grid img, .overview-main-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.image-grid img:hover, .overview-main-image:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px var(--primary-gold);
+}
+
+/* Mechanics Section Styling */
+.mechanics-container {
+    max-width: 1000px;
+    width: 90%;
+    text-align: center;
+}
+
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mechanic-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-left: 3px solid var(--primary-gold);
+    border-radius: 4px;
+    text-align: left;
+    transition: transform var(--transition-fast);
+}
+
+.mechanic-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.mechanic-item .term {
+    display: block;
+    font-weight: bold;
+    color: var(--primary-gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.mechanic-item.highlighted {
+    background: rgba(240, 230, 140, 0.1);
+    border: 1px solid var(--primary-gold);
 }
