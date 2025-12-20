@@ -17,7 +17,7 @@
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    scroll-padding-top: 0; /* Set to 0 for pixel-perfect button alignment */
+    scroll-padding-top: 0; 
 }
 
 .section, .landing {
@@ -72,7 +72,7 @@ body {
     color: var(--text-white);
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-decoration: none; /* Underline removed */
+    text-decoration: none;
     transition: color var(--transition-fast);
 }
 
@@ -84,7 +84,7 @@ body {
 /* ======================= LAYOUT COMPONENTS ======================= */
 
 .section, .landing {
-    height: 100vh;
+    height: 100vh; /* Reverted to fixed height */
     width: 100%;
     position: relative;
     display: flex;
@@ -94,7 +94,7 @@ body {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     padding: 2rem;
-    overflow: hidden;
+    overflow: hidden; /* Reverted to hidden */
 }
 
 .landing {
@@ -107,7 +107,6 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Scroll Button Containers */
 .scroll-up-btn-container,
 .scroll-down-btn-container {
     position: absolute;
@@ -120,35 +119,17 @@ body {
 .scroll-up-btn-container { top: 6rem; }
 .scroll-down-btn-container { bottom: 2rem; }
 
-/* --- Navigation Arrows Sizing Logic --- */
-
-/* 1. Landing Arrow: Always 30% bigger than standard */
 .landing-content .hero-btn img {
     width: clamp(65px, 8vw, 105px); 
     transition: transform var(--transition-slow);
 }
 
-/* 2. Internal Arrows: Standard base size for mobile/portrait */
 .section .hero-btn img {
-    width: clamp(50px, 6vw, 80px);
+    width: clamp(40px, 5vw, 60px); /* Slightly smaller arrows to save space */
 }
-
-/* 3. Desktop Landscape Only: Adjusted for better visibility */
-@media (min-width: 1025px) and (orientation: landscape) {
-    .section .hero-btn img {
-        width: 50px; /* Increased from 30px for better landscape visibility */
-    }
-    
-    .landing-content .hero-btn img {
-        width: 90px; /* Large CTA for the landing section */
-    }
-}
-
-/* --- Click/Release "Push" Animations --- */
 
 .hero-btn {
     display: inline-block;
-    /* Spring-like return to position on release */
     transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -156,18 +137,57 @@ body {
     transform: scale(1.1);
 }
 
-/* Moving Down: Landing and all Next-Section arrows */
-.landing-content .hero-btn:active,
-.scroll-down-btn-container .hero-btn:active {
-    transform: translateY(10px);
+/* ======================= COMPACT VERTICAL MECHANICS ======================= */
+
+.mechanics-container {
+    max-width: 700px; /* Narrower for better vertical flow */
+    width: 90%;
+    margin-top: 1rem;
 }
 
-/* Moving Up: All Previous-Section arrows */
-.scroll-up-btn-container .hero-btn:active {
-    transform: translateY(-10px);
+.mechanics-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem; /* Minimal gap between items */
+    margin-top: 1rem;
 }
 
-/* ======================= SECTION SPECIFICS ======================= */
+.mechanic-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem; /* Very compact padding */
+    border-left: 2px solid var(--primary-gold);
+    border-radius: 4px;
+    text-align: left;
+    transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.mechanic-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.mechanic-item .term {
+    display: block;
+    font-weight: bold;
+    color: var(--primary-gold);
+    font-size: 0.95rem; /* Shrunk title */
+    margin-bottom: 0.1rem;
+    text-transform: uppercase;
+}
+
+.mechanic-item p {
+    font-size: 0.85rem; /* Shrunk description */
+    line-height: 1.3;
+    opacity: 0.85;
+}
+
+.mechanic-item.highlighted {
+    background: rgba(240, 230, 140, 0.1);
+    border: 1px solid var(--primary-gold);
+}
+
+/* ======================= OTHER SECTIONS ======================= */
 
 .overview-content-wrapper {
     display: grid;
@@ -220,8 +240,6 @@ body {
     z-index: 1;
 }
 
-/* ======================= ANIMATIONS ======================= */
-
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -250,7 +268,6 @@ body {
     .main-nav a { font-size: 0.75rem; }
 }
 
-/* Add a subtle lift and glow to cards on hover */
 .image-grid img, .overview-main-image {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -259,46 +276,4 @@ body {
 .image-grid img:hover, .overview-main-image:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 0 20px var(--primary-gold);
-}
-
-/* Mechanics Section Styling */
-.mechanics-container {
-    max-width: 1000px;
-    width: 90%;
-    text-align: center;
-}
-
-.mechanics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.mechanic-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-left: 3px solid var(--primary-gold);
-    border-radius: 4px;
-    text-align: left;
-    transition: transform var(--transition-fast);
-}
-
-.mechanic-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(10px);
-}
-
-.mechanic-item .term {
-    display: block;
-    font-weight: bold;
-    color: var(--primary-gold);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-}
-
-.mechanic-item.highlighted {
-    background: rgba(240, 230, 140, 0.1);
-    border: 1px solid var(--primary-gold);
 }
