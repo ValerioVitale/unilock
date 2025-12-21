@@ -120,7 +120,7 @@ body {
 .scroll-down-btn-container { bottom: 2rem; }
 
 .landing-content .hero-btn img {
-    width: clamp(65px, 8vw, 105px); 
+    width: clamp(85px, 10.5vw, 137px); 
     transition: transform var(--transition-slow);
 }
 
@@ -140,51 +140,56 @@ body {
 /* ======================= COMPACT VERTICAL MECHANICS ======================= */
 
 .mechanics-container {
-    max-width: 700px; /* Narrower for better vertical flow */
+    max-width: 700px;
     width: 90%;
     margin-top: 1rem;
+    text-align: center;
 }
 
 .mechanics-list {
-    list-style: none;
+    list-style: none; /* Keeps it without bullets */
     display: flex;
     flex-direction: column;
-    gap: 0.4rem; /* Minimal gap between items */
-    margin-top: 1rem;
+    gap: 1.2rem;      /* Increased gap for readability since boxes are gone */
+    margin-top: 1.5rem;
 }
 
 .mechanic-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.5rem 1rem; /* Very compact padding */
-    border-left: 2px solid var(--primary-gold);
-    border-radius: 4px;
-    text-align: left;
-    transition: transform var(--transition-fast), background var(--transition-fast);
+    background: none;        /* Removed button background */
+    padding: 0;              /* Removed padding */
+    border-left: none;       /* Removed yellow border-left */
+    text-align: center;
+    transition: opacity var(--transition-fast);
 }
 
 .mechanic-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
+    background: none;        /* Removed hover background */
+    transform: none;         /* Removed the sliding movement */
+    opacity: 0.8;            /* Subtle feedback instead of a move */
 }
 
 .mechanic-item .term {
     display: block;
     font-weight: bold;
     color: var(--primary-gold);
-    font-size: 0.95rem; /* Shrunk title */
-    margin-bottom: 0.1rem;
+    font-size: 1rem;         /* Slightly larger for a header feel */
+    margin-bottom: 0.2rem;
     text-transform: uppercase;
 }
 
 .mechanic-item p {
-    font-size: 0.85rem; /* Shrunk description */
-    line-height: 1.3;
-    opacity: 0.85;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    max-width: 600px;        /* Keeps text lines from being too long */
+    margin: 0 auto;
 }
 
+/* Optional: Keep a very subtle indicator for the highlighted item */
 .mechanic-item.highlighted {
-    background: rgba(240, 230, 140, 0.1);
-    border: 1px solid var(--primary-gold);
+    background: none;
+    border: none;
+    text-decoration: underline radial-gradient(var(--primary-gold), transparent);
 }
 
 /* ======================= OTHER SECTIONS ======================= */
