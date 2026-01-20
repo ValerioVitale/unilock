@@ -137,7 +137,7 @@ body {
     transform: scale(1.1);
 }
 
-/* ======================= NEW MECHANICS SECTION ======================= */
+/* ======================= MECHANICS SECTION ======================= */
 
 .mechanics-images-container {
     display: flex;
@@ -160,6 +160,28 @@ body {
 
 .mechanic-graphic:hover {
     transform: scale(1.02);
+}
+
+/* ======================= TIMELINE SECTION ======================= */
+
+.timeline-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Full screen landscape image */
+.timeline-main-image.landscape-only {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* Set to 'cover' if you want it to bleed off edges */
+    display: block;
+}
+
+.timeline-main-image.portrait-only {
+    display: none; /* Hidden by default on desktop */
 }
 
 /* ======================= OTHER SECTIONS ======================= */
@@ -200,7 +222,7 @@ body {
     align-items: center;
 }
 
-.team-photo-img, .timeline-main-image {
+.team-photo-img {
     position: relative;
     z-index: 2;
     max-width: 90%;
@@ -262,16 +284,29 @@ body {
 
     .main-nav a { font-size: 0.75rem; }
 
+    /* Swap Timeline Image on Mobile/Portrait */
+    .timeline-main-image.landscape-only {
+        display: none;
+    }
+    
+    .timeline-main-image.portrait-only {
+        display: block;
+        width: 100%;
+        height: 80vh; /* Leave room for buttons */
+        object-fit: contain;
+    }
+
     /* Stack mechanics images on mobile */
     .mechanics-images-container {
         flex-direction: column;
         height: auto;
         gap: 1rem;
+        padding: 4rem 1rem;
     }
 
     .mechanic-graphic {
         width: 100%;
-        max-height: 40vh;
+        max-height: 35vh;
     }
 }
 
