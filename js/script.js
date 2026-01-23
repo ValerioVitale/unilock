@@ -47,5 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Observe all sections and the landing area
     document.querySelectorAll('section, .landing').forEach(s => observer.observe(s));
 
-    // NOTE: The 'wheel' event listener has been removed to fix the navigation delay.
+    // Card Flip Logic
+const card = document.getElementById('card-flipper');
+if (card) {
+    card.addEventListener('click', () => {
+        card.classList.toggle('is-flipped');
+    });
+}
 });
