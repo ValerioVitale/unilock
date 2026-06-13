@@ -162,10 +162,6 @@ body {
     transform: scale(1.02);
 }
 
-.mechanic-graphic:hover {
-    transform: scale(1.02);
-}
-
 /* ======================= TIMELINE SECTION ======================= */
 
 .timeline-container {
@@ -275,11 +271,73 @@ body {
 /* ======================= RESPONSIVE ======================= */
 
 @media (max-width: 768px) {
-    .overview-content-wrapper {
-        grid-template-columns: 1fr;
+    #overview-section {
+        height: 100vh; /* Ripristinato 100vh: l'Observer ora rileva la sezione al 100% */
+        padding-top: 5.5rem; /* Lascia lo spazio visivo per la barra di navigazione */
+        padding-bottom: 2rem;
+        display: block;
+        overflow-y: scroll; /* Permette lo scorrimento interno dei contenuti (carta + testo) */
+        scroll-snap-align: start; /* Mantiene lo snap perfetto quando si scende dalla Landing */
+        -webkit-overflow-scrolling: touch; /* Rende lo scorrimento fluido su dispositivi iOS */
+    }
+
+    #overview-section .scroll-down-btn-container {
+        position: static; /* Rimuove l'ancoraggio absolute a schermo */
+        margin-top: -2rem; /* Bilancia lo spazio vuoto del flexbox interno */
+        padding-bottom: 3rem; /* Crea spazio sicuro dal fondo della pagina */
+        width: 100%;
         text-align: center;
     }
+
+    .overview-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0; 
+        text-align: center;
+        width: 100%;
+    }
+
+    .overview-image-container {
+        height: calc(100vh - 5.5rem); 
+        width: 100%;
+        max-width: 290px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .card-inner {
+        width: 100%;
+        height: 410px; 
+        margin: 0 auto;
+    }
+
+    .card-front, .card-back {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        left: 0;
+        top: 0;
+    }
+
+    .overview-text-container.pitch-text {
+        min-height: calc(100vh - 5.5rem); /* Dedica una schermata intera pulita al testo */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        padding: 2rem 1.5rem 6rem 1.5rem; /* Padding inferiore aumentato per non coprire il testo dai bottoni di navigazione */
+        gap: 2.5rem;
+        width: 100%;
+    }
+
+    .overview-text-container.pitch-text p {
+        font-size: 1.15rem;
+        line-height: 1.6;
+    }
     
+    /* Gestione altri elementi responsive */
     .main-nav {
         gap: 0.8rem;
         padding: 0 1rem;
@@ -296,7 +354,7 @@ body {
     .timeline-main-image.portrait-only {
         display: block;
         width: 100%;
-        height: 80vh; /* Leave room for buttons */
+        height: 55vh; 
         object-fit: contain;
     }
 
@@ -305,7 +363,7 @@ body {
         flex-direction: column;
         height: auto;
         gap: 1rem;
-        padding: 4rem 1rem;
+        padding: 1rem 1rem 3rem 1rem; 
     }
 
     .mechanic-graphic {
@@ -315,36 +373,26 @@ body {
 
     /* 1. AGGIUSTAMENTO BARRA DI NAVIGAZIONE E SEZIONI */
     .nav-bar {
-        padding: 0.8rem 0; /* Riduce l'altezza della barra quando va su due righe */
+        padding: 0.8rem 0; 
     }
 
     .section {
-        /* Aumenta il padding superiore per spingere i titoli sotto la barra di navigazione */
         padding-top: 6.5rem; 
         padding-bottom: 4rem;
     }
 
     /* 2. SPECIFICO PER LA TIMELINE IN PORTRAIT */
     #timeline-section h2 {
-        margin-bottom: 1.5rem; /* Crea un distacco netto tra il titolo e la grafica */
-    }
-
-    .timeline-main-image.portrait-only {
-        /* Riduciamo leggermente l'altezza dal precedente 80vh a 55vh */
-        /* Questo impedisce all'immagine di espandersi troppo verso l'alto e toccare il titolo */
-        height: 55vh; 
+        margin-bottom: 1.5rem; 
     }
 
     /* 3. SPECIFICO PER GAME MECHANICS IN PORTRAIT */
     #game-mechanics-section h2 {
-        margin-bottom: 1rem; /* Distanza controllata dal testo sottostante */
-    }
-
-    .mechanics-images-container {
-        /* Modifica il padding per dare più respiro verticale e non toccare il titolo */
-        padding: 1rem 1rem 3rem 1rem; 
+        margin-bottom: 1rem; 
     }
 }
+
+/* ======================= ANIMATIONS & EFFECTS ======================= */
 
 .image-grid img, .overview-main-image {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -363,7 +411,7 @@ body {
 
 /* Container for the 3D effect */
 .overview-image-container {
-    perspective: 1000px; /* Gives depth to the rotation */
+    perspective: 1000px; 
     cursor: pointer;
 }
 
@@ -375,7 +423,6 @@ body {
     transform-style: preserve-3d;
 }
 
-/* Re-applying your glow to the container instead of individual images */
 .card-inner:hover {
     box-shadow: 0 0 30px var(--primary-gold);
 }
@@ -388,7 +435,7 @@ body {
 .card-front, .card-back {
     position: absolute;
     width: 100%;
-    backface-visibility: hidden; /* Hides the reverse side during rotation */
+    backface-visibility: hidden; 
     -webkit-backface-visibility: hidden;
 }
 
@@ -398,7 +445,7 @@ body {
 
 /* Ensure the container maintains the height of the absolute images */
 .overview-image-container {
-    height: 560px; /* Adjust based on your card's aspect ratio */
+    height: 560px; 
     display: flex;
     justify-content: center;
 }
