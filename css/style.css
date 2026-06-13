@@ -281,10 +281,10 @@ body {
 @media (max-width: 768px) {
     /* Swap delle viste su Mobile Portrait */
     .desktop-only-view {
-        display: none !important; /* Spegne la sezione unita desktop */
+        display: none !important; 
     }
     .portrait-only-view {
-        display: flex !important; /* Attiva le due sezioni separate standard */
+        display: flex !important; 
     }
 
     /* Struttura uniforme delle due nuove sezioni Mobile Portrait */
@@ -292,17 +292,25 @@ body {
     #overview-section-portrait-2 {
         height: 100vh;
         width: 100%;
-        padding-top: 6.5rem; /* Evita intersecazione con navbar */
+        padding-top: 6.5rem; 
         padding-bottom: 5rem;
         justify-content: center;
         align-items: center;
     }
 
-    /* Centratura millimetrica della Carta mobile (Sezione 1) */
+    /* Centratura e proporzioni della Carta mobile + Prima Frase (Sezione 1) */
+    #overview-section-portrait-1 .overview-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem; /* Ridotto lo spazio per agganciare la prima frase */
+        width: 100%;
+    }
+
     #overview-section-portrait-1 .overview-image-container {
         width: 100%;
-        max-width: 290px;
-        height: 410px;
+        max-width: 220px; /* Ridotta larghezza massima da 290px a 220px */
+        height: 310px;    /* Ridotta altezza massima da 410px a 310px */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -323,7 +331,15 @@ body {
         top: 0;
     }
 
-    /* Layout del testo mobile (Sezione 2) */
+    /* Stile specifico per la prima frase posizionata sotto la carta */
+    .portrait-first-phrase {
+        width: 100%;
+        max-width: 600px;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    /* Layout del testo rimanente nella seconda schermata mobile (Sezione 2) */
     #overview-section-portrait-2 .overview-text-container.pitch-text {
         width: 100%;
         max-width: 600px;
@@ -332,9 +348,10 @@ body {
         text-align: center;
     }
 
-    #overview-section-portrait-2 .overview-text-container.pitch-text p {
-        font-size: 1.15rem;
-        line-height: 1.6;
+    #overview-section-portrait-2 .overview-text-container.pitch-text p,
+    #overview-section-portrait-1 .overview-text-container.pitch-text p {
+        font-size: 1.1rem; /* Dimensione equilibrata per prevenire qualsiasi overflow sui 100vh */
+        line-height: 1.5;
     }
 
     /* Gestione altri elementi responsive globali */
