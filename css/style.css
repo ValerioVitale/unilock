@@ -147,7 +147,7 @@ body {
     gap: 2rem;
     width: 100%;
     max-width: 1200px;
-    height: 70vh;
+    height: 55vh; 
     padding: 0 2rem;
 }
 
@@ -162,11 +162,15 @@ body {
     transform: scale(1.02);
 }
 
+.mechanic-graphic:hover {
+    transform: scale(1.02);
+}
+
 /* ======================= TIMELINE SECTION ======================= */
 
 .timeline-container {
     width: 100%;
-    height: 100%;
+    height: 65vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,8 +179,8 @@ body {
 /* Full screen landscape image */
 .timeline-main-image.landscape-only {
     width: 100vw;
-    height: 100vh;
-    object-fit: contain; /* Set to 'cover' if you want it to bleed off edges */
+    height: 100%; 
+    object-fit: contain; 
     display: block;
 }
 
@@ -307,6 +311,38 @@ body {
     .mechanic-graphic {
         width: 100%;
         max-height: 35vh;
+    }
+
+    /* 1. AGGIUSTAMENTO BARRA DI NAVIGAZIONE E SEZIONI */
+    .nav-bar {
+        padding: 0.8rem 0; /* Riduce l'altezza della barra quando va su due righe */
+    }
+
+    .section {
+        /* Aumenta il padding superiore per spingere i titoli sotto la barra di navigazione */
+        padding-top: 6.5rem; 
+        padding-bottom: 4rem;
+    }
+
+    /* 2. SPECIFICO PER LA TIMELINE IN PORTRAIT */
+    #timeline-section h2 {
+        margin-bottom: 1.5rem; /* Crea un distacco netto tra il titolo e la grafica */
+    }
+
+    .timeline-main-image.portrait-only {
+        /* Riduciamo leggermente l'altezza dal precedente 80vh a 55vh */
+        /* Questo impedisce all'immagine di espandersi troppo verso l'alto e toccare il titolo */
+        height: 55vh; 
+    }
+
+    /* 3. SPECIFICO PER GAME MECHANICS IN PORTRAIT */
+    #game-mechanics-section h2 {
+        margin-bottom: 1rem; /* Distanza controllata dal testo sottostante */
+    }
+
+    .mechanics-images-container {
+        /* Modifica il padding per dare più respiro verticale e non toccare il titolo */
+        padding: 1rem 1rem 3rem 1rem; 
     }
 }
 
