@@ -47,6 +47,14 @@ body {
     border: 0;
 }
 
+/* Visibilità condizionale desktop/portrait di default */
+.portrait-only-view {
+    display: none !important; /* Nascosto su PC desktop */
+}
+.desktop-only-view {
+    display: flex !important;
+}
+
 /* ======================= NAVIGATION ======================= */
 
 .nav-bar {
@@ -271,50 +279,43 @@ body {
 /* ======================= RESPONSIVE ======================= */
 
 @media (max-width: 768px) {
-    #overview-section {
-        height: 100vh; /* Ripristinato 100vh: l'Observer ora rileva la sezione al 100% */
-        padding-top: 5.5rem; /* Lascia lo spazio visivo per la barra di navigazione */
-        padding-bottom: 2rem;
-        display: block;
-        overflow-y: scroll; /* Permette lo scorrimento interno dei contenuti (carta + testo) */
-        scroll-snap-align: start; /* Mantiene lo snap perfetto quando si scende dalla Landing */
-        -webkit-overflow-scrolling: touch; /* Rende lo scorrimento fluido su dispositivi iOS */
+    /* Swap delle viste su Mobile Portrait */
+    .desktop-only-view {
+        display: none !important; /* Spegne la sezione unita desktop */
+    }
+    .portrait-only-view {
+        display: flex !important; /* Attiva le due sezioni separate standard */
     }
 
-    #overview-section .scroll-down-btn-container {
-        position: static; /* Rimuove l'ancoraggio absolute a schermo */
-        margin-top: -2rem; /* Bilancia lo spazio vuoto del flexbox interno */
-        padding-bottom: 3rem; /* Crea spazio sicuro dal fondo della pagina */
+    /* Struttura uniforme delle due nuove sezioni Mobile Portrait */
+    #overview-section-portrait-1,
+    #overview-section-portrait-2 {
+        height: 100vh;
         width: 100%;
-        text-align: center;
-    }
-
-    .overview-content-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0; 
-        text-align: center;
-        width: 100%;
-    }
-
-    .overview-image-container {
-        height: calc(100vh - 5.5rem); 
-        width: 100%;
-        max-width: 290px; 
-        display: flex;
-        align-items: center;
+        padding-top: 6.5rem; /* Evita intersecazione con navbar */
+        padding-bottom: 5rem;
         justify-content: center;
-        margin: 0 auto;
+        align-items: center;
     }
 
-    .card-inner {
+    /* Centratura millimetrica della Carta mobile (Sezione 1) */
+    #overview-section-portrait-1 .overview-image-container {
         width: 100%;
-        height: 410px; 
+        max-width: 290px;
+        height: 410px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 0 auto;
     }
 
-    .card-front, .card-back {
+    #overview-section-portrait-1 .card-inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    #overview-section-portrait-1 .card-front, 
+    #overview-section-portrait-1 .card-back {
         width: 100%;
         height: 100%;
         object-fit: contain;
@@ -322,22 +323,21 @@ body {
         top: 0;
     }
 
-    .overview-text-container.pitch-text {
-        min-height: calc(100vh - 5.5rem); /* Dedica una schermata intera pulita al testo */
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        padding: 2rem 1.5rem 6rem 1.5rem; /* Padding inferiore aumentato per non coprire il testo dai bottoni di navigazione */
-        gap: 2.5rem;
+    /* Layout del testo mobile (Sezione 2) */
+    #overview-section-portrait-2 .overview-text-container.pitch-text {
         width: 100%;
+        max-width: 600px;
+        padding: 0 1.5rem;
+        gap: 2rem;
+        text-align: center;
     }
 
-    .overview-text-container.pitch-text p {
+    #overview-section-portrait-2 .overview-text-container.pitch-text p {
         font-size: 1.15rem;
         line-height: 1.6;
     }
-    
-    /* Gestione altri elementi responsive */
+
+    /* Gestione altri elementi responsive globali */
     .main-nav {
         gap: 0.8rem;
         padding: 0 1rem;
