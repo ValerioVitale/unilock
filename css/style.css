@@ -256,6 +256,32 @@ body {
     transform: translateY(0);
 }
 
+/* ======================= CARDS GALLERY SECTION ======================= */
+
+.cards-showcase-container {
+    width: 100%;
+    /* Blocca l'altezza al 60% della schermata per non toccare titolo e bottoni */
+    height: 60vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.cards-showcase-image {
+    width: 100%;
+    height: 100%;
+    /* Mantiene le proporzioni 1920x1080 intatte senza tagliare o deformare su nessun monitor */
+    object-fit: contain; 
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+    transition: transform var(--transition-slow);
+}
+
+/* Un leggero effetto hover per renderla interattiva come gli altri elementi del tuo sito */
+.cards-showcase-image:hover {
+    transform: scale(1.01);
+}
+
 /* ======================= OVERVIEW PITCH TEXT ======================= */
 
 .overview-text-container.pitch-text {
