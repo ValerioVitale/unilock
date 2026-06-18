@@ -282,6 +282,26 @@ body {
     transform: scale(1.01);
 }
 
+/* ======================= TURNS STRUCTURE SECTION ======================= */
+
+.turns-showcase-container {
+    width: 100%;
+    /* Limita l'altezza al 60% della schermata per salvaguardare lo spazio di titolo e frecce */
+    height: 60vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.turns-showcase-gif {
+    width: 100%;
+    height: 100%;
+    /* Mantiene le proporzioni 1920x1080 della GIF intatte senza deformarla su nessun monitor */
+    object-fit: contain; 
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+}
+
 /* ======================= OVERVIEW PITCH TEXT ======================= */
 
 .overview-text-container.pitch-text {
