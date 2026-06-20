@@ -297,9 +297,16 @@ body {
 .turns-showcase-gif {
     width: 100%;
     height: 100%;
-    /* Mantiene le proporzioni 1920x1080 della GIF intatte senza deformarla su nessun monitor */
+    /* Mantiene le proporzioni della GIF intatte senza deformarla su nessun monitor */
     object-fit: contain; 
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+}
+
+.turns-showcase-gif.landscape-only {
+    display: block;
+}
+.turns-showcase-gif.portrait-only {
+    display: none; /* Nascosta su desktop */
 }
 
 /* ======================= OVERVIEW PITCH TEXT ======================= */
@@ -452,6 +459,19 @@ body {
     /* 3. SPECIFICO PER GAME MECHANICS IN PORTRAIT */
     #game-mechanics-section h2 {
         margin-bottom: 1rem; 
+    }
+
+    /* Inversione visibilità GIF nella sezione Turns su dispositivi Mobile/Portrait */
+    .turns-showcase-gif.landscape-only {
+        display: none !important;
+    }
+    
+    .turns-showcase-gif.portrait-only {
+        display: block !important;
+        width: 100%;
+        /* Limitiamo l'altezza al 55% per far respirare il titolo e la freccia nei display 9:16 verticali */
+        height: 55vh; 
+        object-fit: contain;
     }
 }
 
