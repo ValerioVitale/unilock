@@ -340,13 +340,18 @@ body {
         display: flex !important; 
     }
 
+    /* MODIFICATO: Rialziamo la posizione di TUTTE le frecce inferiori per salvarle dai tasti Android */
+    .scroll-down-btn-container {
+        bottom: 4.5rem !important; 
+    }
+
     /* Struttura uniforme delle due nuove sezioni Mobile Portrait */
     #overview-section-portrait-1,
     #overview-section-portrait-2 {
         height: 100vh;
         width: 100%;
         padding-top: 6.5rem; 
-        padding-bottom: 5rem;
+        padding-bottom: 7rem; /* Aumentato il padding per spingere i contenuti orizzontalmente in alto */
         justify-content: center;
         align-items: center;
     }
@@ -356,14 +361,14 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem; 
+        gap: 1rem; /* Ridotto leggermente per guadagnare spazio verticale */
         width: 100%;
     }
 
     #overview-section-portrait-1 .overview-image-container {
         width: 100%;
-        max-width: 220px; 
-        height: 310px;    
+        max-width: 200px; /* Ridotta da 220px a 200px per sicurezza */
+        height: 280px;    /* Ridotta da 310px a 280px per dare agio alla freccia alzata */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -403,7 +408,7 @@ body {
 
     #overview-section-portrait-2 .overview-text-container.pitch-text p,
     #overview-section-portrait-1 .overview-text-container.pitch-text p {
-        font-size: 1.1rem; 
+        font-size: 1.05rem; /* Ottimizzato leggermente */
         line-height: 1.5;
     }
 
@@ -424,7 +429,7 @@ body {
     .timeline-main-image.portrait-only {
         display: block !important;
         width: 100%;
-        height: 55vh; 
+        height: 48vh; /* Ridotta da 55vh a 48vh per compensare la freccia alzata */
         object-fit: contain;
     }
 
@@ -438,7 +443,7 @@ body {
 
     .mechanic-graphic {
         width: 100%;
-        max-height: 35vh;
+        max-height: 30vh; /* Ridotta da 35vh a 30vh per fare spazio inferiore */
     }
 
     /* 1. AGGIUSTAMENTO BARRA DI NAVIGAZIONE E SEZIONI */
@@ -448,7 +453,7 @@ body {
 
     .section {
         padding-top: 6.5rem; 
-        padding-bottom: 4rem;
+        padding-bottom: 6.5rem; /* Aumentato il padding per salvaguardare lo spazio della freccia alzata */
     }
 
     /* 2. SPECIFICO PER LA TIMELINE IN PORTRAIT */
@@ -461,7 +466,7 @@ body {
         margin-bottom: 1rem; 
     }
 
-    /* SISTEMATO: Spostato correttamente ALL'INTERNO della media query mobile */
+    /* Inversione visibilità GIF nella sezione Turns su dispositivi Mobile/Portrait */
     .turns-showcase-gif.landscape-only {
         display: none !important;
     }
@@ -469,8 +474,13 @@ body {
     .turns-showcase-gif.portrait-only {
         display: block !important;
         width: 100%;
-        height: 52vh; /* Abbassato leggermente per dare ancora più spazio a titolo e freccia */
+        height: 45vh; /* Ridotta da 52vh a 45vh così la freccia alzata non tocca l'animazione */
         object-fit: contain;
+    }
+    
+    /* Ottimizzazione contenitore gallery carte in portrait */
+    .cards-showcase-container {
+        height: 48vh; /* Ridotta da 60vh a 48vh per lasciare spazio alla freccia mobile */
     }
 }
 
