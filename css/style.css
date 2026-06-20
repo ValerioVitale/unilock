@@ -340,19 +340,27 @@ body {
         display: flex !important; 
     }
 
-    /* MODIFICATO: Rialziamo la posizione di TUTTE le frecce inferiori per salvarle dai tasti Android */
+    /* Rialziamo la posizione di TUTTE le frecce inferiori per salvarle dai tasti Android */
     .scroll-down-btn-container {
         bottom: 4.5rem !important; 
     }
 
-    /* Struttura uniforme delle due nuove sezioni Mobile Portrait */
-    #overview-section-portrait-1,
+    /* MODIFICATO: Separati i due ID per gestire l'allineamento in modo differente */
+    #overview-section-portrait-1 {
+        height: 100vh;
+        width: 100%;
+        padding-top: 5.6rem; /* <--- MODIFICHEREMO QUESTO */
+        padding-bottom: 7rem; 
+        justify-content: flex-start; /* Fa partire la carta dall'alto vicino al menu */
+        align-items: center;
+    }
+
     #overview-section-portrait-2 {
         height: 100vh;
         width: 100%;
-        padding-top: 6.5rem; 
-        padding-bottom: 7rem; /* Aumentato il padding per spingere i contenuti orizzontalmente in alto */
-        justify-content: center;
+        padding-top: 4.2rem; 
+        padding-bottom: 7rem; 
+        justify-content: center; /* Centra verticalmente le 2 frasi nello spazio tra menu e freccia */
         align-items: center;
     }
 
@@ -361,14 +369,14 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem; /* Ridotto leggermente per guadagnare spazio verticale */
+        gap: 1rem; 
         width: 100%;
     }
 
     #overview-section-portrait-1 .overview-image-container {
         width: 100%;
-        max-width: 200px; /* Ridotta da 220px a 200px per sicurezza */
-        height: 280px;    /* Ridotta da 310px a 280px per dare agio alla freccia alzata */
+        max-width: 220px; 
+        height: 310px;    
         display: flex;
         justify-content: center;
         align-items: center;
@@ -395,20 +403,22 @@ body {
         max-width: 600px;
         padding: 0 1.5rem;
         text-align: center;
+        margin-top: 0.5rem;
     }
 
     /* Layout del testo rimanente nella seconda schermata mobile (Sezione 2) */
     #overview-section-portrait-2 .overview-text-container.pitch-text {
         width: 100%;
         max-width: 600px;
-        padding: 0 1.5rem;
-        gap: 2rem;
+        padding: 0 1.5rem; /* Rimosso il padding superiore fisso per assecondare la centratura del flex */
+        gap: 3.5rem; /* Aumentato leggermente lo spazio tra i due paragrafi per riempire meglio l'area centrale */
         text-align: center;
     }
 
+    /* Ingrandito leggermente il carattere dei testi di Overview per bilanciare lo spazio */
     #overview-section-portrait-2 .overview-text-container.pitch-text p,
     #overview-section-portrait-1 .overview-text-container.pitch-text p {
-        font-size: 1.05rem; /* Ottimizzato leggermente */
+        font-size: 1.09rem; 
         line-height: 1.5;
     }
 
@@ -429,7 +439,7 @@ body {
     .timeline-main-image.portrait-only {
         display: block !important;
         width: 100%;
-        height: 48vh; /* Ridotta da 55vh a 48vh per compensare la freccia alzata */
+        height: 48vh; 
         object-fit: contain;
     }
 
@@ -443,7 +453,7 @@ body {
 
     .mechanic-graphic {
         width: 100%;
-        max-height: 30vh; /* Ridotta da 35vh a 30vh per fare spazio inferiore */
+        max-height: 30vh; 
     }
 
     /* 1. AGGIUSTAMENTO BARRA DI NAVIGAZIONE E SEZIONI */
@@ -453,7 +463,7 @@ body {
 
     .section {
         padding-top: 6.5rem; 
-        padding-bottom: 6.5rem; /* Aumentato il padding per salvaguardare lo spazio della freccia alzata */
+        padding-bottom: 6.5rem; 
     }
 
     /* 2. SPECIFICO PER LA TIMELINE IN PORTRAIT */
@@ -474,13 +484,13 @@ body {
     .turns-showcase-gif.portrait-only {
         display: block !important;
         width: 100%;
-        height: 45vh; /* Ridotta da 52vh a 45vh così la freccia alzata non tocca l'animazione */
+        height: 45vh; 
         object-fit: contain;
     }
     
     /* Ottimizzazione contenitore gallery carte in portrait */
     .cards-showcase-container {
-        height: 48vh; /* Ridotta da 60vh a 48vh per lasciare spazio alla freccia mobile */
+        height: 48vh; 
     }
 }
 
