@@ -303,10 +303,10 @@ body {
 }
 
 .turns-showcase-gif.landscape-only {
-    display: block;
+    display: block !important;
 }
 .turns-showcase-gif.portrait-only {
-    display: none; /* Nascosta su desktop */
+    display: none !important; /* Nascosta su desktop */
 }
 
 /* ======================= OVERVIEW PITCH TEXT ======================= */
@@ -356,14 +356,14 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem; /* Ridotto lo spazio per agganciare la prima frase */
+        gap: 1.5rem; 
         width: 100%;
     }
 
     #overview-section-portrait-1 .overview-image-container {
         width: 100%;
-        max-width: 220px; /* Ridotta larghezza massima da 290px a 220px */
-        height: 310px;    /* Ridotta altezza massima da 410px a 310px */
+        max-width: 220px; 
+        height: 310px;    
         display: flex;
         justify-content: center;
         align-items: center;
@@ -403,7 +403,7 @@ body {
 
     #overview-section-portrait-2 .overview-text-container.pitch-text p,
     #overview-section-portrait-1 .overview-text-container.pitch-text p {
-        font-size: 1.1rem; /* Dimensione equilibrata per prevenire qualsiasi overflow sui 100vh */
+        font-size: 1.1rem; 
         line-height: 1.5;
     }
 
@@ -418,11 +418,11 @@ body {
 
     /* Swap Timeline Image on Mobile/Portrait */
     .timeline-main-image.landscape-only {
-        display: none;
+        display: none !important;
     }
     
     .timeline-main-image.portrait-only {
-        display: block;
+        display: block !important;
         width: 100%;
         height: 55vh; 
         object-fit: contain;
@@ -461,7 +461,7 @@ body {
         margin-bottom: 1rem; 
     }
 
-    /* Inversione visibilità GIF nella sezione Turns su dispositivi Mobile/Portrait */
+    /* SISTEMATO: Spostato correttamente ALL'INTERNO della media query mobile */
     .turns-showcase-gif.landscape-only {
         display: none !important;
     }
@@ -469,8 +469,7 @@ body {
     .turns-showcase-gif.portrait-only {
         display: block !important;
         width: 100%;
-        /* Limitiamo l'altezza al 55% per far respirare il titolo e la freccia nei display 9:16 verticali */
-        height: 55vh; 
+        height: 52vh; /* Abbassato leggermente per dare ancora più spazio a titolo e freccia */
         object-fit: contain;
     }
 }
