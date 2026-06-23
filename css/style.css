@@ -507,9 +507,9 @@ body {
         overflow-y: hidden;
         scroll-snap-type: x mandatory; 
         -webkit-overflow-scrolling: touch;
-        gap: 1.5rem; /* Ridotto leggermente il gap tra gli elementi per recuperare area visiva */
-        padding: 0 1.5rem; /* Ridotto il padding laterale del contenitore per far allargare le carte */
-        height: 55vh; /* MODIFICATO: Alzato da 48vh a 55vh per sfruttare lo spazio verticale sicuro */
+        gap: 1.5rem; 
+        padding: 0 1.5rem; 
+        height: 55vh; 
         align-items: center;
     }
 
@@ -519,10 +519,14 @@ body {
     }
 
     .carousel-item {
-        flex: 0 0 90%; /* MODIFICATO: Alzato dal 75% al 90% per rendere la carta decisamente più larga e grande */
+        flex: 0 0 90%; 
         width: 90%;
         height: 100%;
         scroll-snap-align: center; 
+        
+        /* MODIFICATO: Forziamo l'aggancio pesante impedendo di saltare più elementi con uno swipe */
+        scroll-snap-stop: always; 
+        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -530,7 +534,7 @@ body {
 
     .carousel-item img {
         width: 100%;
-        height: 53vh; /* MODIFICATO: Alzato da 45vh a 53vh per massimizzare la scala verticale */
+        height: 53vh; 
         object-fit: contain;
         filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
     }
