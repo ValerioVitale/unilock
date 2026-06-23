@@ -345,11 +345,11 @@ body {
         bottom: 4.5rem !important; 
     }
 
-    /* MODIFICATO: Separati i due ID per gestire l'allineamento in modo differente */
+    /* Separati i due ID per gestire l'allineamento in modo differente */
     #overview-section-portrait-1 {
         height: 100vh;
         width: 100%;
-        padding-top: 5.6rem; /* <--- MODIFICHEREMO QUESTO */
+        padding-top: 5.6rem; 
         padding-bottom: 7rem; 
         justify-content: flex-start; /* Fa partire la carta dall'alto vicino al menu */
         align-items: center;
@@ -410,8 +410,8 @@ body {
     #overview-section-portrait-2 .overview-text-container.pitch-text {
         width: 100%;
         max-width: 600px;
-        padding: 0 1.5rem; /* Rimosso il padding superiore fisso per assecondare la centratura del flex */
-        gap: 3.5rem; /* Aumentato leggermente lo spazio tra i due paragrafi per riempire meglio l'area centrale */
+        padding: 0 1.5rem; 
+        gap: 3.5rem; 
         text-align: center;
     }
 
@@ -436,10 +436,16 @@ body {
         display: none !important;
     }
     
+    .timeline-container {
+        height: auto;
+        padding: 0 1rem;
+    }
+
     .timeline-main-image.portrait-only {
         display: block !important;
         width: 100%;
-        height: 48vh; 
+        max-width: 100%;
+        height: 50vh; 
         object-fit: contain;
     }
 
@@ -488,9 +494,45 @@ body {
         object-fit: contain;
     }
     
-    /* Ottimizzazione contenitore gallery carte in portrait */
-    .cards-showcase-container {
-        height: 48vh; 
+    /* Configurazione carosello orizzontale per la galleria carte mobile */
+    .cards-showcase-container.landscape-only {
+        display: none !important; 
+    }
+
+    .cards-carousel-container {
+        width: 100%;
+        display: flex !important; 
+        flex-direction: row;
+        overflow-x: auto; 
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory; 
+        -webkit-overflow-scrolling: touch;
+        gap: 1.5rem; /* Ridotto leggermente il gap tra gli elementi per recuperare area visiva */
+        padding: 0 1.5rem; /* Ridotto il padding laterale del contenitore per far allargare le carte */
+        height: 55vh; /* MODIFICATO: Alzato da 48vh a 55vh per sfruttare lo spazio verticale sicuro */
+        align-items: center;
+    }
+
+    /* Rimuove le barre di scorrimento visive per un'interfaccia pulita */
+    .cards-carousel-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .carousel-item {
+        flex: 0 0 90%; /* MODIFICATO: Alzato dal 75% al 90% per rendere la carta decisamente più larga e grande */
+        width: 90%;
+        height: 100%;
+        scroll-snap-align: center; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 53vh; /* MODIFICATO: Alzato da 45vh a 53vh per massimizzare la scala verticale */
+        object-fit: contain;
+        filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
     }
 }
 
