@@ -260,33 +260,41 @@ body {
 
 .cards-showcase-container {
     width: 100%;
-    /* Blocca l'altezza al 60% della schermata per non toccare titolo e bottoni */
     height: 60vh; 
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 2rem;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Transizione fluida per lo swap */
+}
+
+/* Quando l'immagine statica viene cliccata riceve questa classe per sparire */
+.cards-showcase-container.hidden-gallery {
+    opacity: 0 !important;
+    transform: scale(0.95);
+    pointer-events: none;
+    display: none !important;
 }
 
 .cards-showcase-image {
     width: 100%;
     height: 100%;
-    /* Mantiene le proporzioni 1920x1080 intatte senza tagliare o deformare su nessun monitor */
     object-fit: contain; 
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
-    transition: transform var(--transition-slow);
+    cursor: pointer; /* Cambia il cursore in una manina quando ci passi sopra */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Gestisce fluidamente il sollevamento e l'effetto oro */
 }
 
-/* Un leggero effetto hover per renderla interattiva come gli altri elementi del tuo sito */
+/* AGGIUNTO: Effetto sollevamento e bagliore oro specifico su PC desktop (Landscape) */
 .cards-showcase-image:hover {
-    transform: scale(1.01);
+    transform: translateY(-10px) scale(1.02);
+    filter: drop-shadow(0 0 15px #F0E68C) drop-shadow(0 10px 25px rgba(0,0,0,0.6));
 }
 
 /* ======================= TURNS STRUCTURE SECTION ======================= */
 
 .turns-showcase-container {
     width: 100%;
-    /* Limita l'altezza al 60% della schermata per salvaguardare lo spazio di titolo e frecce */
     height: 60vh; 
     display: flex;
     justify-content: center;
@@ -297,7 +305,6 @@ body {
 .turns-showcase-gif {
     width: 100%;
     height: 100%;
-    /* Mantiene le proporzioni della GIF intatte senza deformarla su nessun monitor */
     object-fit: contain; 
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
 }
@@ -306,7 +313,63 @@ body {
     display: block !important;
 }
 .turns-showcase-gif.portrait-only {
-    display: none !important; /* Nascosta su desktop */
+    display: none !important; 
+}
+
+/* ======================= CAROSSELLO GENERALE (DESKTOP LANDSCAPE) ======================= */
+
+.cards-carousel-container {
+    width: 100%;
+    display: none; /* Nascondiamo il carosello di default su PC Desktop */
+    flex-direction: row;
+    overflow-x: auto; 
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch;
+    gap: 3rem; 
+    padding: 0 25vw; /* Generoso spazio ai lati su PC per tenere la carta centrale e mostrare le adiacenti */
+    height: 60vh; 
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+/* Classe attivata via JavaScript al click sulla galleria */
+.cards-carousel-container.carousel-active {
+    display: flex !important;
+}
+
+.cards-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+.cards-carousel-container::-webkit-scrollbar-thumb {
+    background: var(--primary-gold);
+    border-radius: 4px;
+}
+.cards-carousel-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.carousel-item {
+    flex: 0 0 350px; /* Larghezza fissa perfetta per le proporzioni di una carta su monitor PC */
+    width: 350px;
+    height: 100%;
+    scroll-snap-align: center; 
+    scroll-snap-stop: always; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 55vh; 
+    object-fit: contain;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+    transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.03);
 }
 
 /* ======================= OVERVIEW PITCH TEXT ======================= */
@@ -332,7 +395,6 @@ body {
 /* ======================= RESPONSIVE ======================= */
 
 @media (max-width: 768px) {
-    /* Swap delle viste su Mobile Portrait */
     .desktop-only-view {
         display: none !important; 
     }
@@ -340,18 +402,16 @@ body {
         display: flex !important; 
     }
 
-    /* Rialziamo la posizione di TUTTE le frecce inferiori per salvarle dai tasti Android */
     .scroll-down-btn-container {
         bottom: 4.5rem !important; 
     }
 
-    /* Separati i due ID per gestire l'allineamento in modo differente */
     #overview-section-portrait-1 {
         height: 100vh;
         width: 100%;
         padding-top: 5.6rem; 
         padding-bottom: 7rem; 
-        justify-content: flex-start; /* Fa partire la carta dall'alto vicino al menu */
+        justify-content: flex-start; 
         align-items: center;
     }
 
@@ -360,11 +420,10 @@ body {
         width: 100%;
         padding-top: 4.2rem; 
         padding-bottom: 7rem; 
-        justify-content: center; /* Centra verticalmente le 2 frasi nello spazio tra menu e freccia */
+        justify-content: center; 
         align-items: center;
     }
 
-    /* Centratura e proporzioni della Carta mobile + Prima Frase (Sezione 1) */
     #overview-section-portrait-1 .overview-content-wrapper {
         display: flex;
         flex-direction: column;
@@ -397,7 +456,6 @@ body {
         top: 0;
     }
 
-    /* Stile specifico per la prima frase posizionata sotto la carta */
     .portrait-first-phrase {
         width: 100%;
         max-width: 600px;
@@ -406,7 +464,6 @@ body {
         margin-top: 0.5rem;
     }
 
-    /* Layout del testo rimanente nella seconda schermata mobile (Sezione 2) */
     #overview-section-portrait-2 .overview-text-container.pitch-text {
         width: 100%;
         max-width: 600px;
@@ -415,14 +472,12 @@ body {
         text-align: center;
     }
 
-    /* Ingrandito leggermente il carattere dei testi di Overview per bilanciare lo spazio */
     #overview-section-portrait-2 .overview-text-container.pitch-text p,
     #overview-section-portrait-1 .overview-text-container.pitch-text p {
         font-size: 1.09rem; 
         line-height: 1.5;
     }
 
-    /* Gestione altri elementi responsive globali */
     .main-nav {
         gap: 0.8rem;
         padding: 0 1rem;
@@ -431,7 +486,6 @@ body {
 
     .main-nav a { font-size: 0.75rem; }
 
-    /* Swap Timeline Image on Mobile/Portrait */
     .timeline-main-image.landscape-only {
         display: none !important;
     }
@@ -449,7 +503,6 @@ body {
         object-fit: contain;
     }
 
-    /* Stack mechanics images on mobile */
     .mechanics-images-container {
         flex-direction: column;
         height: auto;
@@ -462,7 +515,6 @@ body {
         max-height: 30vh; 
     }
 
-    /* 1. AGGIUSTAMENTO BARRA DI NAVIGAZIONE E SEZIONI */
     .nav-bar {
         padding: 0.8rem 0; 
     }
@@ -472,17 +524,14 @@ body {
         padding-bottom: 6.5rem; 
     }
 
-    /* 2. SPECIFICO PER LA TIMELINE IN PORTRAIT */
     #timeline-section h2 {
         margin-bottom: 1.5rem; 
     }
 
-    /* 3. SPECIFICO PER GAME MECHANICS IN PORTRAIT */
     #game-mechanics-section h2 {
         margin-bottom: 1rem; 
     }
 
-    /* Inversione visibilità GIF nella sezione Turns su dispositivi Mobile/Portrait */
     .turns-showcase-gif.landscape-only {
         display: none !important;
     }
@@ -494,49 +543,25 @@ body {
         object-fit: contain;
     }
     
-    /* Configurazione carosello orizzontale per la galleria carte mobile */
-    .cards-showcase-container.landscape-only {
-        display: none !important; 
-    }
-
+    /* ADATTAMENTO CAROSELLO IN MODALITÀ MOBILE PORTRAIT */
     .cards-carousel-container {
-        width: 100%;
-        display: flex !important; 
-        flex-direction: row;
-        overflow-x: auto; 
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory; 
-        -webkit-overflow-scrolling: touch;
+        display: flex !important; /* Sempre attivo su mobile portrait */
         gap: 1.5rem; 
         padding: 0 1.5rem; 
         height: 55vh; 
-        align-items: center;
     }
 
-    /* Rimuove le barre di scorrimento visive per un'interfaccia pulita */
     .cards-carousel-container::-webkit-scrollbar {
-        display: none;
+        display: none; /* Nasconde la barra di scorrimento su smartphone */
     }
 
     .carousel-item {
         flex: 0 0 90%; 
         width: 90%;
-        height: 100%;
-        scroll-snap-align: center; 
-        
-        /* MODIFICATO: Forziamo l'aggancio pesante impedendo di saltare più elementi con uno swipe */
-        scroll-snap-stop: always; 
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .carousel-item img {
-        width: 100%;
         height: 53vh; 
-        object-fit: contain;
-        filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
     }
 }
 

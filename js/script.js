@@ -74,4 +74,20 @@ document.addEventListener('DOMContentLoaded', () => {
             cardMobile.classList.toggle('is-flipped');
         });
     }
+
+    // 4. AGGIUNTO: Logic di Swap per la Galleria/Carosello in Desktop Landscape
+    const landscapeGalleryTrigger = document.getElementById('landscape-gallery-trigger');
+    const cardsCarousel = document.getElementById('cards-carousel');
+
+    if (landscapeGalleryTrigger && cardsCarousel) {
+        landscapeGalleryTrigger.addEventListener('click', () => {
+            // Solo se l'utente si trova in modalità desktop (larghezza schermo maggiore di 768px)
+            if (window.innerWidth > 768) {
+                // Applica la classe per nascondere l'immagine statica con una dissolvenza
+                landscapeGalleryTrigger.classList.add('hidden-gallery');
+                // Attiva la visualizzazione del carosello orizzontale in modalità desktop
+                cardsCarousel.classList.add('carousel-active');
+            }
+        });
+    }
 });
