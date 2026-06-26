@@ -551,6 +551,11 @@ body {
         height: 55vh; 
     }
 
+    /* Nasconde la galleria statica a ventaglio su mobile portrait fin dall'inizio */
+    #landscape-gallery-trigger {
+        display: none !important;
+    }
+
     .cards-carousel-container::-webkit-scrollbar {
         display: none; /* Nasconde la barra di scorrimento su smartphone */
     }
