@@ -387,14 +387,157 @@ body {
 }
 
 .overview-text-container.pitch-text strong,
-.overview-text-container.pitch-text .highlight {
+.overview-text-container.pitch-text .highlight, 
+.lore-text-box strong,
+.lore-text-box .highlight{
     color: var(--primary-gold);
     font-weight: bold;
+}
+
+/* ======================= REVISED LORE SECTION (SINGLE) ======================= */
+
+/* Forziamo la sezione a comportarsi come un contenitore flex rigido alto esattamente lo schermo */
+#lore-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mette le frecce/contenuti ai margini corretti */
+    align-items: center;
+    height: 100vh;
+    padding: 2vh 0; /* Riduce i padding interni verticali della sezione */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* Impedisce tassativamente qualsiasi overflow o barra di scorrimento */
+}
+
+/* Riposiziona il titolo Lore senza toccare il contenuto sotto */
+#lore-section h2 {
+    position: relative;
+    top: 140px; /* Sposta il titolo giù visivamente. Puoi variare questo valore (es. 80px o 100px) per allinearlo a Timeline */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.lore-container-unique {
+    width: 100%;
+    max-width: 950px; 
+    margin: auto 0; /* Centra perfettamente il blocco nello spazio orizzontale tra titolo e freccia giù */
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* COMPATTATO: Riduce drasticamente lo spazio vuoto verticale tra i 3 blocchi */
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.lore-row-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem; 
+    width: 100%;
+}
+
+/* Gestione layout a Z alternato automatico */
+.lore-row-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.lore-text-box {
+    flex: 1;
+}
+
+.lore-text-box p {
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem); /* Ottimizzato leggermente per monitor standard */
+    line-height: 1.5; /* Più compatto ed elegante */
+    text-align: left;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Spazio minimo tra i paragrafi interni allo stesso blocco */
+.lore-text-box p + p {
+    margin-top: 0.4rem;
+}
+
+/* Le carte mantengono l'impatto visivo desiderato ma occupano lo spazio ottimale */
+.lore-img-box {
+    width: 190px;  /* Limato di soli 10px per garantire la stabilità su schermi portatili 13"/15" */
+    height: 260px; /* Proporzione perfetta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.lore-mini-art {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+/* Posizionamento pulito dei bottoni di scorrimento */
+.scroll-up-btn-container,
+.scroll-down-btn-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Struttura principale per la seconda riga in Landscape (Desktop) */
+.lore-row-block.reverse-desktop-layout {
+    display: flex;
+    align-items: center; /* Centra verticalmente l'immagine rispetto al blocco di testo totale */
+    justify-content: flex-start;
+    gap: 5rem; /* Spazio orizzontale tra l'immagine a sinistra e il testo a destra */
+    width: 100%;
+}
+
+/* Contenitore che incolonna i due testi uno sopra l'altro */
+.lore-text-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2rem; /* Spazio verticale tra il primo e il secondo paragrafo */
 }
 
 /* ======================= RESPONSIVE ======================= */
 
 @media (max-width: 768px) {
+
+   /* ADATTAMENTO LORE SU MOBILE PORTRAIT */
+    .lore-container-unique {
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+
+    .lore-row-block, 
+    .lore-row-block.reverse,
+    .lore-row-block.reverse-desktop-layout {
+        flex-direction: column; /* Incolonna l'immagine e i testi su mobile */
+        gap: 0.8rem;
+        text-align: center;
+    }
+
+    /* Gestione della colonna di testo su mobile */
+    .lore-text-column {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .lore-text-box p {
+        font-size: 1.05rem !important;
+        line-height: 1.5;
+        text-align: center; 
+    }
+
+    .lore-img-box {
+        width: 140px; 
+        height: 195px; 
+        margin: 0 auto;
+    }
+
     .desktop-only-view {
         display: none !important; 
     }
