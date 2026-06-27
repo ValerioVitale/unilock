@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             
-            // AGGIUSTAMENTO MOBILE: Se l'utente clicca su "#overview-section" ma è su mobile portrait, 
-            // lo reindirizziamo alla prima delle due sezioni sdoppiate.
+            // MODIFICATO: Reindirizzamento allo sdoppiamento mobile a 3 sub-sezioni per la Lore
             let finalTargetId = targetId;
             if (targetId === '#overview-section' && window.innerWidth <= 768) {
                 finalTargetId = '#overview-section-portrait-1';
+            } else if (targetId === '#lore-section' && window.innerWidth <= 768) {
+                finalTargetId = '#lore-section-portrait-1';
             }
             
             const targetElement = document.querySelector(finalTargetId);
@@ -42,10 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update navigation active states
                 let id = entry.target.getAttribute('id');
                 
-                // AGGIUSTAMENTO MOBILE: Se l'observer intercetta una delle due sezioni sdoppiate di Overview,
-                // dice alla barra di navigazione di accendere il link standard "#overview-section"
+                // MODIFICATO: Mappatura corretta delle 3 sub-sezioni della Lore sul menu principale
                 if (id === 'overview-section-portrait-1' || id === 'overview-section-portrait-2') {
                     id = 'overview-section';
+                } else if (id === 'lore-section-portrait-1' || id === 'lore-section-portrait-2' || id === 'lore-section-portrait-3') {
+                    id = 'lore-section';
                 }
                 
                 document.querySelectorAll('.nav-link').forEach(link => {
@@ -55,11 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe all sections and the landing area
-    document.querySelectorAll('section, .landing').forEach(s => observer.observe(s));
+    // MODIFICATO: Inclusione di #lore-section-portrait-3 nell'Observer di tracciamento
+    document.querySelectorAll('section, .landing, #overview-section-portrait-1, #overview-section-portrait-2, #lore-section-portrait-1, #lore-section-portrait-2, #lore-section-portrait-3').forEach(s => observer.observe(s));
 
-    // 3. Card Flip Logic (Aggiornato per Desktop e Mobile)
-    // Gestione Flip Carta Desktop
+    // 3. Card Flip Logic
     const cardDesktop = document.getElementById('card-flipper');
     if (cardDesktop) {
         cardDesktop.addEventListener('click', () => {
@@ -67,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Gestione Flip Carta Mobile Portrait
     const cardMobile = document.getElementById('card-flipper-mobile');
     if (cardMobile) {
         cardMobile.addEventListener('click', () => {
@@ -75,17 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. AGGIUNTO: Logic di Swap per la Galleria/Carosello in Desktop Landscape
+    // 4. Logic di Swap per la Galleria/Carosello in Desktop Landscape
     const landscapeGalleryTrigger = document.getElementById('landscape-gallery-trigger');
     const cardsCarousel = document.getElementById('cards-carousel');
 
     if (landscapeGalleryTrigger && cardsCarousel) {
         landscapeGalleryTrigger.addEventListener('click', () => {
-            // Solo se l'utente si trova in modalità desktop (larghezza schermo maggiore di 768px)
             if (window.innerWidth > 768) {
-                // Applica la classe per nascondere l'immagine statica con una dissolvenza
                 landscapeGalleryTrigger.classList.add('hidden-gallery');
-                // Attiva la visualizzazione del carosello orizzontale in modalità desktop
                 cardsCarousel.classList.add('carousel-active');
             }
         });

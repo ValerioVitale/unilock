@@ -265,10 +265,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0 2rem;
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Transizione fluida per lo swap */
+    transition: opacity 0.4s ease, transform 0.4s ease; 
 }
 
-/* Quando l'immagine statica viene cliccata riceve questa classe per sparire */
 .cards-showcase-container.hidden-gallery {
     opacity: 0 !important;
     transform: scale(0.95);
@@ -281,11 +280,10 @@ body {
     height: 100%;
     object-fit: contain; 
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
-    cursor: pointer; /* Cambia il cursore in una manina quando ci passi sopra */
-    transition: transform 0.3s ease, filter 0.3s ease; /* Gestisce fluidamente il sollevamento e l'effetto oro */
+    cursor: pointer; 
+    transition: transform 0.3s ease, filter 0.3s ease; 
 }
 
-/* AGGIUNTO: Effetto sollevamento e bagliore oro specifico su PC desktop (Landscape) */
 .cards-showcase-image:hover {
     transform: translateY(-10px) scale(1.02);
     filter: drop-shadow(0 0 15px #F0E68C) drop-shadow(0 10px 25px rgba(0,0,0,0.6));
@@ -320,20 +318,19 @@ body {
 
 .cards-carousel-container {
     width: 100%;
-    display: none; /* Nascondiamo il carosello di default su PC Desktop */
+    display: none; 
     flex-direction: row;
     overflow-x: auto; 
     overflow-y: hidden;
     scroll-snap-type: x mandatory; 
     -webkit-overflow-scrolling: touch;
     gap: 3rem; 
-    padding: 0 25vw; /* Generoso spazio ai lati su PC per tenere la carta centrale e mostrare le adiacenti */
+    padding: 0 25vw; 
     height: 60vh; 
     align-items: center;
     transition: opacity 0.5s ease;
 }
 
-/* Classe attivata via JavaScript al click sulla galleria */
 .cards-carousel-container.carousel-active {
     display: flex !important;
 }
@@ -350,7 +347,7 @@ body {
 }
 
 .carousel-item {
-    flex: 0 0 350px; /* Larghezza fissa perfetta per le proporzioni di una carta su monitor PC */
+    flex: 0 0 350px; 
     width: 350px;
     height: 100%;
     scroll-snap-align: center; 
@@ -396,23 +393,21 @@ body {
 
 /* ======================= REVISED LORE SECTION (SINGLE) ======================= */
 
-/* Forziamo la sezione a comportarsi come un contenitore flex rigido alto esattamente lo schermo */
 #lore-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Mette le frecce/contenuti ai margini corretti */
+    justify-content: space-between; 
     align-items: center;
     height: 100vh;
-    padding: 2vh 0; /* Riduce i padding interni verticali della sezione */
+    padding: 2vh 0; 
     box-sizing: border-box;
     position: relative;
-    overflow: hidden; /* Impedisce tassativamente qualsiasi overflow o barra di scorrimento */
+    overflow: hidden; 
 }
 
-/* Riposiziona il titolo Lore senza toccare il contenuto sotto */
 #lore-section h2 {
     position: relative;
-    top: 140px; /* Sposta il titolo giù visivamente. Puoi variare questo valore (es. 80px o 100px) per allinearlo a Timeline */
+    top: 140px; 
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -420,10 +415,10 @@ body {
 .lore-container-unique {
     width: 100%;
     max-width: 950px; 
-    margin: auto 0; /* Centra perfettamente il blocco nello spazio orizzontale tra titolo e freccia giù */
+    margin: auto 0; 
     display: flex;
     flex-direction: column;
-    gap: 1.2rem; /* COMPATTATO: Riduce drasticamente lo spazio vuoto verticale tra i 3 blocchi */
+    gap: 1.2rem; 
     padding: 0 2rem;
     box-sizing: border-box;
 }
@@ -436,7 +431,6 @@ body {
     width: 100%;
 }
 
-/* Gestione layout a Z alternato automatico */
 .lore-row-block.reverse {
     flex-direction: row-reverse;
 }
@@ -446,22 +440,20 @@ body {
 }
 
 .lore-text-box p {
-    font-size: clamp(0.95rem, 1.3vw, 1.15rem); /* Ottimizzato leggermente per monitor standard */
-    line-height: 1.5; /* Più compatto ed elegante */
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem); 
+    line-height: 1.5; 
     text-align: left;
     margin: 0;
     opacity: 0.95;
 }
 
-/* Spazio minimo tra i paragrafi interni allo stesso blocco */
 .lore-text-box p + p {
     margin-top: 0.4rem;
 }
 
-/* Le carte mantengono l'impatto visivo desiderato ma occupano lo spazio ottimale */
 .lore-img-box {
-    width: 190px;  /* Limato di soli 10px per garantire la stabilità su schermi portatili 13"/15" */
-    height: 260px; /* Proporzione perfetta */
+    width: 190px;  
+    height: 260px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -475,7 +467,6 @@ body {
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
 }
 
-/* Posizionamento pulito dei bottoni di scorrimento */
 .scroll-up-btn-container,
 .scroll-down-btn-container {
     margin: 0;
@@ -484,65 +475,81 @@ body {
     justify-content: center;
 }
 
-/* Struttura principale per la seconda riga in Landscape (Desktop) */
 .lore-row-block.reverse-desktop-layout {
     display: flex;
-    align-items: center; /* Centra verticalmente l'immagine rispetto al blocco di testo totale */
+    align-items: center; 
     justify-content: flex-start;
-    gap: 5rem; /* Spazio orizzontale tra l'immagine a sinistra e il testo a destra */
+    gap: 5rem; 
     width: 100%;
 }
 
-/* Contenitore che incolonna i due testi uno sopra l'altro */
 .lore-text-column {
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 2rem; /* Spazio verticale tra il primo e il secondo paragrafo */
+    gap: 2rem; 
 }
 
 /* ======================= RESPONSIVE ======================= */
 
 @media (max-width: 768px) {
-
-   /* ADATTAMENTO LORE SU MOBILE PORTRAIT */
-    .lore-container-unique {
-        gap: 1.5rem;
-        padding: 0 1.5rem;
-    }
-
-    .lore-row-block, 
-    .lore-row-block.reverse,
-    .lore-row-block.reverse-desktop-layout {
-        flex-direction: column; /* Incolonna l'immagine e i testi su mobile */
-        gap: 0.8rem;
-        text-align: center;
-    }
-
-    /* Gestione della colonna di testo su mobile */
-    .lore-text-column {
-        flex-direction: column;
-        gap: 0.8rem;
-        width: 100%;
-    }
-
-    .lore-text-box p {
-        font-size: 1.05rem !important;
-        line-height: 1.5;
-        text-align: center; 
-    }
-
-    .lore-img-box {
-        width: 140px; 
-        height: 195px; 
-        margin: 0 auto;
-    }
-
     .desktop-only-view {
         display: none !important; 
     }
     .portrait-only-view {
         display: flex !important; 
+    }
+
+    /* MODIFICATO: ADATTAMENTO 3 SUB-SEZIONI SDOPPIATE PER LORE PORTRAIT */
+    .portrait-lore-layout {
+        height: 100vh;
+        width: 100%;
+        padding-top: 5.6rem; 
+        padding-bottom: 7rem; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .portrait-lore-layout h2 {
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .lore-portrait-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem; 
+        width: 100%;
+        padding: 0 1.5rem;
+        /* flex: 1; */
+        justify-content: center; 
+    }
+
+    .lore-portrait-content-wrapper .lore-img-box {
+        width: 140px; 
+        height: 195px; 
+        margin: 0 auto;
+        flex-shrink: 0;
+    }
+
+    .lore-portrait-content-wrapper .lore-text-box {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .lore-portrait-content-wrapper .lore-text-box p {
+        font-size: 1.05rem !important;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0;
     }
 
     .scroll-down-btn-container {
@@ -686,21 +693,19 @@ body {
         object-fit: contain;
     }
     
-    /* ADATTAMENTO CAROSELLO IN MODALITÀ MOBILE PORTRAIT */
     .cards-carousel-container {
-        display: flex !important; /* Sempre attivo su mobile portrait */
+        display: flex !important; 
         gap: 1.5rem; 
         padding: 0 1.5rem; 
         height: 55vh; 
     }
 
-    /* Nasconde la galleria statica a ventaglio su mobile portrait fin dall'inizio */
     #landscape-gallery-trigger {
         display: none !important;
     }
 
     .cards-carousel-container::-webkit-scrollbar {
-        display: none; /* Nasconde la barra di scorrimento su smartphone */
+        display: none; 
     }
 
     .carousel-item {
@@ -725,12 +730,10 @@ body {
     box-shadow: 0 0 20px var(--primary-gold);
 }
 
-/* Hide up-scroll buttons */
 .scroll-up-btn-container {
     display: none;
 }
 
-/* Container for the 3D effect */
 .overview-image-container {
     perspective: 1000px; 
     cursor: pointer;
@@ -748,7 +751,6 @@ body {
     box-shadow: 0 0 30px var(--primary-gold);
 }
 
-/* The class we will toggle with JavaScript */
 .card-inner.is-flipped {
     transform: rotateY(180deg);
 }
@@ -764,7 +766,6 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Ensure the container maintains the height of the absolute images */
 .overview-image-container {
     height: 560px; 
     display: flex;
