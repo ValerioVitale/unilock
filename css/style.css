@@ -525,7 +525,6 @@ body {
         gap: 1.5rem; 
         width: 100%;
         padding: 0 1.5rem;
-        /* flex: 1; */
         justify-content: center; 
     }
 
@@ -720,14 +719,20 @@ body {
 
 /* ======================= ANIMATIONS & EFFECTS ======================= */
 
-.image-grid img, .overview-main-image {
+/* Mantiene l'effetto solo sulle immagini della griglia generica */
+.image-grid img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
-.image-grid img:hover, .overview-main-image:hover {
+.image-grid img:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 0 20px var(--primary-gold);
+}
+
+/* Transizione fluida di base per le immagini della carta Unilock */
+.overview-main-image {
+    transition: transform 0.3s ease;
 }
 
 .scroll-up-btn-container {
@@ -743,16 +748,26 @@ body {
     position: relative;
     width: 100%;
     max-width: 400px;
+    /* Unificata la transizione per gestire rotazione, zoom e ombre assieme */
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
     transform-style: preserve-3d;
 }
 
+/* 1. HOVER SUL RETRO: Quando la carta NON è girata, zooma e si alza normalmente */
 .card-inner:hover {
+    transform: translateY(-10px) scale(1.05);
     box-shadow: 0 0 30px var(--primary-gold);
 }
 
+/* 2. STATO GIRATO: Quando cliccata, ruota di 180 gradi sul suo asse */
 .card-inner.is-flipped {
     transform: rotateY(180deg);
+}
+
+/* 3. HOVER SUL FRONTE: Quando è girata (is-flipped) mantiene la rotazione E applica lo zoom */
+.card-inner.is-flipped:hover {
+    transform: rotateY(180deg) translateY(-10px) scale(1.05);
+    box-shadow: 0 0 30px var(--primary-gold);
 }
 
 .card-front, .card-back {
