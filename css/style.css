@@ -786,3 +786,87 @@ body {
     display: flex;
     justify-content: center;
 }
+
+/* ======================= CONTACT SECTION EXTENSION (HORIZONTAL ROWS) ======================= */
+
+#contact-section h2 {
+    margin-bottom: 2.5rem;  /* Spinge via i testi sotto, facendo salire il titolo verso l'alto */
+    transform: translateY(-20px); /* Solleva ulteriormente il titolo di 20 pixel */
+}
+
+.contact-rows-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    max-width: 900px; 
+    width: 100%;
+    margin-top: 4rem;   /* Spazio generoso sotto il titolo "Join the Odyssey" */
+    padding: 0 2rem;
+}
+
+.contact-horizontal-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;        /* DIMINUITO: Ora il testo e la sua rispettiva email sono molto più vicini e compatti */
+    background: none;
+    padding: 0;         
+    border: none;
+}
+
+.contact-horizontal-row h3 {
+    color: var(--primary-gold);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.contact-horizontal-row p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 800px; 
+    margin: 0;
+}
+
+.contact-email-link {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    margin-top: 0.3rem; /* Controllo millimetrico per la vicinanza al paragrafo */
+    display: inline-block;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.contact-email-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+    transform: scale(1.02); 
+}
+
+/* Adattamento Responsive per Schermi Mobile Portrait */
+@media (max-width: 768px) {
+    .contact-rows-container {
+        gap: 3rem;      /* Ridotto proporzionalmente per il mobile per non rompere il layout a 100vh */
+        padding: 0 1rem;
+        overflow-y: auto;
+        height: 65vh; 
+    }
+
+    .contact-horizontal-row {
+        padding: 0;
+        gap: 0.6rem;    /* Mantiene la compattezza testo-email anche su smartphone */
+    }
+
+    .contact-horizontal-row p {
+        font-size: 1rem;
+    }
+
+    .contact-email-link {
+        font-size: 1rem;
+    }
+}
