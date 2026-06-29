@@ -850,8 +850,16 @@ body {
 
 /* Adattamento Responsive per Schermi Mobile Portrait */
 @media (max-width: 768px) {
+
+    /* Regola per spostare il titolo più in alto SOLO su mobile */
+    #contact-section h2 {
+        position: relative;
+        top: +30px;          /* Alza il titolo di 30 pixel rispetto alla sua posizione originale */
+        margin-bottom: 10px;  /* Riduce lo spazio sotto per farlo stare più in alto */
+    }
+
     .contact-rows-container {
-        gap: 3rem;      /* Ridotto proporzionalmente per il mobile per non rompere il layout a 100vh */
+        gap: 4.5rem;
         padding: 0 1rem;
         overflow-y: auto;
         height: 65vh; 
@@ -859,7 +867,7 @@ body {
 
     .contact-horizontal-row {
         padding: 0;
-        gap: 0.6rem;    /* Mantiene la compattezza testo-email anche su smartphone */
+        gap: 0.6rem;
     }
 
     .contact-horizontal-row p {
