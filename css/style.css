@@ -293,7 +293,7 @@ body {
 
 .turns-showcase-container {
     width: 100%;
-    height: 60vh; 
+    height: 70vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -688,7 +688,6 @@ body {
     .turns-showcase-gif.portrait-only {
         display: block !important;
         width: 100%;
-        height: 45vh; 
         object-fit: contain;
     }
     
