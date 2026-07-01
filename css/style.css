@@ -895,6 +895,8 @@ img {
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none; 
 }
 
 /* Disabilita i pointer-events di default sulle immagini statiche (es: loghi, sfondi, icone) 
@@ -916,4 +918,11 @@ button,
 .mechanic-graphic,
 .image-grid img {
     pointer-events: auto !important;
+}
+
+/* Impedisce di stampare la pagina o salvarla come PDF per estrarre gli asset */
+@media print {
+    body {
+        display: none !important;
+    }
 }

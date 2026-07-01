@@ -92,9 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Forza il blocco del trascinamento per qualsiasi immagine via codice
     document.addEventListener('dragstart', (e) => {
-        if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-        }
+        if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+    document.addEventListener('drop', (e) => {
+        e.preventDefault();
     });
 
     // Blocca le combinazioni di tasti per copia, taglia e strumenti sviluppatore
