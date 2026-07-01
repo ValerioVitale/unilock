@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             
-            // MODIFICATO: Reindirizzamento allo sdoppiamento mobile a 3 sub-sezioni per la Lore
             let finalTargetId = targetId;
             if (targetId === '#overview-section' && window.innerWidth <= 768) {
                 finalTargetId = '#overview-section-portrait-1';
@@ -35,15 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Trigger fade-in animations
                 entry.target.querySelectorAll('.fade-in').forEach(el => {
                     el.classList.add('visible');
                 });
                 
-                // Update navigation active states
                 let id = entry.target.getAttribute('id');
                 
-                // MODIFICATO: Mappatura corretta delle 3 sub-sezioni della Lore sul menu principale
                 if (id === 'overview-section-portrait-1' || id === 'overview-section-portrait-2') {
                     id = 'overview-section';
                 } else if (id === 'lore-section-portrait-1' || id === 'lore-section-portrait-2' || id === 'lore-section-portrait-3') {
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // MODIFICATO: Inclusione di #lore-section-portrait-3 nell'Observer di tracciamento
     document.querySelectorAll('section, .landing, #overview-section-portrait-1, #overview-section-portrait-2, #lore-section-portrait-1, #lore-section-portrait-2, #lore-section-portrait-3').forEach(s => observer.observe(s));
 
     // 3. Card Flip Logic
@@ -87,4 +82,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ======================= DISABILITA TASTO DESTRO, TRASCINAMENTO E COPIA =======================
+    
+    // Blocca il menu del tasto destro su tutto il documento
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    });
+
+    // Forza il blocco del trascinamento per qualsiasi immagine via codice
+    document.addEventListener('dragstart', (e) => {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
+    // Blocca le combinazioni di tasti per copia, taglia e strumenti sviluppatore
+    document.addEventListener('keydown', (e) => {
+        if (
+            e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u') ||
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j')) ||
+            e.key === 'F12'
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
 });

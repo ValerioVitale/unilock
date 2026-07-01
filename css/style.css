@@ -877,3 +877,43 @@ body {
         font-size: 1rem;
     }
 }
+
+/* ======================= PROTEZIONE CONTENUTI (Globale per tutti i dispositivi) ======================= */
+
+/* Blocca la selezione del testo su tutto il sito */
+body {
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;          
+}
+
+/* Blocca il trascinamento nativo delle immagini */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+/* Disabilita i pointer-events di default sulle immagini statiche (es: loghi, sfondi, icone) 
+   per impedire la comparsa del menu di salvataggio al click prolungato su mobile */
+img {
+    pointer-events: none;
+}
+
+/* Ripristina i pointer-events SOLO sulle immagini e i contenitori che hanno interazioni (Hover, Click, Carousel) */
+a, 
+button, 
+.hero-btn, 
+.contact-email-link,
+.card-inner, 
+#landscape-gallery-trigger, 
+.carousel-item,
+.carousel-item img,
+.cards-showcase-image,
+.mechanic-graphic,
+.image-grid img {
+    pointer-events: auto !important;
+}
