@@ -490,6 +490,20 @@ body {
     gap: 2rem; 
 }
 
+/* ======================= FOOTER COPYRIGHT ======================= */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    pointer-events: none; /* Non interferisce con il resto */
+}
+
 /* ======================= RESPONSIVE ======================= */
 
 @media (max-width: 768px) {
