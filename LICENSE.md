@@ -1,9 +1,9 @@
-# Licenza del Progetto Unilock
+# Project Licence
 
-### 1. Proprietà Intellettuale
+### 1. Intellectual Property
 
-*   **Content and Assets:** The "Unilock Trading Card Game" project and all its original content (texts, graphics, images, concepts, and documentation), created in 2017, are the property of **Valerio Vitale, Francesco Scavo, Mattia Parisi and Marco Russo**.
-    *   *Copyright © 2017-2026 Unilock. All rights reserved.*
+*   **Content and Assets:** The "Unilock Trading Card Game" (also "Unilock TCG") project and all its original content (texts, graphics, images, concepts, and documentation), created in 2017, are the property of **Valerio Vitale, Francesco Scavo, Mattia Parisi and Marco Russo**.
+    *   *Copyright © 2017-2026 Unilock TCG. All rights reserved.*
 
 *   **Technical Development:** The website, including its technical architecture, source code, and implementation, was created by **Valerio Vitale**.
     *   *Copyright © 2026 Valerio Vitale. All rights reserved.*
@@ -18,12 +18,12 @@ The reproduction, distribution, modification, or use of any part of this project
 
 For usage requests, information, or permissions, please contact: **unilocktcg@gmail.com** for the project, **vitalevalerio@hotmail.it** for the website.
 
-# Licenza del Progetto Unilock
+# Licenza del Progetto
 
 ### 1. Proprietà Intellettuale
 
-*   **Contenuti e Asset:** Il progetto "Unilock Trading Card Game" e tutti i suoi contenuti originali (testi, grafica, immagini, concept e documentazione), nati nel 2017, sono di proprietà di **Valerio Vitale, Francesco Scavo, Mattia Parisi e Marco Russo**.
-    *   *Copyright © 2017-2026 Unilock. Tutti i diritti riservati.*
+*   **Contenuti e Asset:** Il progetto "Unilock Trading Card Game" (anche "Unilock TCG") e tutti i suoi contenuti originali (testi, grafica, immagini, concept e documentazione), nati nel 2017, sono di proprietà di **Valerio Vitale, Francesco Scavo, Mattia Parisi e Marco Russo**.
+    *   *Copyright © 2017-2026 Unilock TCG. Tutti i diritti riservati.*
 
 *   **Sviluppo Tecnico:** Il sito web, inteso come architettura tecnica, codice sorgente e implementazione, è stato realizzato da **Valerio Vitale**.
     *   *Copyright © 2026 Valerio Vitale. Tutti i diritti riservati.*
