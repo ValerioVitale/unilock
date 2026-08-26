@@ -892,6 +892,66 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    /* Trasforma la navbar in un carosello orizzontale in modalità portrait */
+    .nav-bar {
+        padding: 0.8rem 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6), transparent);
+    }
+
+    .main-nav {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 2rem;
+        /* I padding laterali del 50% permettono al primo (Home) e all'ultimo elemento 
+           di potersi centrare perfettamente nello schermo */
+        padding: 0 calc(50vw - 40px); 
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
+    }
+
+    /* Nasconde la scrollbar su Chrome/Safari/Edge */
+    .main-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .main-nav a {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        font-size: 0.85rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+        white-space: nowrap;
+    }
+
+    /* Transizione fluida per l'opacità e la scala dei link della navbar mobile */
+.main-nav a {
+    transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Stati di trasparenza graduata per i link laterali nel carosello mobile */
+.main-nav a.nav-adjacent-1 {
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+.main-nav a.nav-adjacent-2 {
+    opacity: 0.25;
+    transform: scale(0.9);
+}
+
+/* Quando un elemento non è né attivo né adiacente vicino, se vuoi scurirlo ulteriormente */
+.main-nav a:not(.active):not(.nav-adjacent-1):not(.nav-adjacent-2) {
+    opacity: 0.15;
+    transform: scale(0.85);
+}
+}
+
 /* ======================= PROTEZIONE CONTENUTI (Globale per tutti i dispositivi) ======================= */
 
 /* Blocca la selezione del testo su tutto il sito */

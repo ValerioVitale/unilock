@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Intersection Observer for Active Links & Fade-in
+    // 2. Intersection Observer for Active Links, Fade-in & Mobile Navbar Carousel Sync with Gradient Opacity
     const observerOptions = {
         threshold: 0.6 
     };
@@ -46,9 +46,42 @@ document.addEventListener('DOMContentLoaded', () => {
                     id = 'lore-section';
                 }
                 
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                const activeHref = `#${id}`;
+                const allNavLinks = Array.from(document.querySelectorAll('.nav-link'));
+                
+                allNavLinks.forEach((link, index) => {
+                    const isActive = link.getAttribute('href') === activeHref;
+                    link.classList.toggle('active', isActive);
+                    
+                    // Rimuove le vecchie classi di adiacenza
+                    link.classList.remove('nav-adjacent-1', 'nav-adjacent-2');
+                    
+                    if (isActive) {
+                        // Se siamo in modalità mobile/portrait, centra automaticamente la voce attiva nel carosello della navbar
+                        if (window.innerWidth <= 768) {
+                            link.scrollIntoView({
+                                behavior: 'smooth',
+                                inline: 'center',
+                                block: 'nearest'
+                            });
+                        }
+                    }
                 });
+
+                // Calcola e assegna le classi di trasparenza basate sulla distanza dall'indice attivo (solo su mobile)
+                if (window.innerWidth <= 768) {
+                    const activeIndex = allNavLinks.findIndex(link => link.classList.contains('active'));
+                    if (activeIndex !== -1) {
+                        allNavLinks.forEach((link, index) => {
+                            const distance = Math.abs(index - activeIndex);
+                            if (distance === 1) {
+                                link.classList.add('nav-adjacent-1');
+                            } else if (distance >= 2) {
+                                link.classList.add('nav-adjacent-2');
+                            }
+                        });
+                    }
+                }
             }
         });
     }, observerOptions);
